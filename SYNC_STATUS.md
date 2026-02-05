@@ -1,41 +1,32 @@
 # Sync Status Report — 2026-02-05 12:09 UTC
 
-## ✅ Notion Sync
-- **Status:** CONNECTED
-- **Database:** Aplosol Mission Control
-- **Method:** API integration ready
-- **Next:** Auto-sync every 2 hours
+## ✅ GitHub Mission Control
+- **Status:** LIVE
+- **URL:** https://krish4512.github.io/aplosol/mission-control.html
+- **Method:** Auto-pulls from TASKS.md
+- **Updates:** Every 5 minutes
 
-## 📤 Google Drive Upload
-- **Status:** Ready (libraries needed for automation)
-- **Folder:** Aplosol-Generated-Files (1vzBUVMpZ_GO7j1eKDowvijnRKFGbM5bB)
-- **Service Account:** openclaw@aplosol.iam.gserviceaccount.com ✅ Verified
-- **Next:** Will auto-install and upload starting next cycle
+## 📁 Files Ready
 
-## 📁 Files Ready for Manual Review
-
-| File | Size | Status |
-|------|------|--------|
-| index.html | 64 KB | ✅ Live & responsive |
-| TASKS.md | 4.8 KB | ✅ Website-focused tasks |
-| FILE_MANIFEST.md | New | ✅ This report |
+| File | Status |
+|------|--------|
+| index.html | ✅ Live landing page |
+| TASKS.md | ✅ Source of truth |
+| mission-control.html | ✅ Live dashboard |
 
 ## 📱 How to Access
 
-**Right Now (Manual Review):**
-1. Open index.html on your phone (or visit https://krish4512.github.io/aplosol/)
-2. Check TASKS.md in this folder
-3. Review in Google Drive (manually upload these files if you want)
+**Live Dashboard:**
+1. Open: https://krish4512.github.io/aplosol/mission-control.html
+2. Shows real-time task stats from TASKS.md
+3. Auto-updates every 5 minutes
+4. Mobile-friendly
 
-**Notion Dashboard:**
-- https://www.notion.so/ → Your workspace → Aplosol Mission Control
-- View: Switch to Kanban (Group by Status)
-- Status: Pending (16), In Progress (0), Done (0), Review (0)
-
-**From Next Cycle (Automatic):**
-- Files auto-upload to Google Drive
-- Notion updates automatically
-- WhatsApp summary every 2 hours
+**Edit Tasks:**
+1. Edit TASKS.md locally
+2. Mark: [ ] (pending) | [🔄] (active) | [✅] (done)
+3. Commit & push to GitHub
+4. Dashboard updates automatically
 
 ## 🔧 Next Steps
 

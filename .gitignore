@@ -1,5 +1,4 @@
 # Secrets
-.notion-config.json
 .env
 *.key
 *.pem

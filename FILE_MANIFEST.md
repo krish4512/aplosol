@@ -40,10 +40,10 @@
 - Accessibility
 - Conversion optimization
 
-### 3. Automation Scripts
-- `notion-sync.py` - Syncs to Notion
-- `google-drive-sync.py` - Auto-uploads to Drive
-- `run-cycle.sh` - Orchestrates full cycle
+### 3. Mission Control Dashboard
+- `mission-control.html` - Live task dashboard (pulls from TASKS.md)
+- Auto-updates every 5 minutes
+- No dependencies needed
 
 ---
 
