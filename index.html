@@ -110,6 +110,7 @@
             flex-direction: column;
             cursor: pointer;
             gap: 5px;
+            z-index: 101;
         }
         
         .hamburger span {
@@ -820,6 +821,53 @@
             font-size: 13px;
         }
         
+        /* Sticky Mobile CTA */
+        .sticky-cta-mobile {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 23, 42, 0.98);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(75, 127, 255, 0.1);
+            padding: 12px 16px;
+            z-index: 50;
+            gap: 10px;
+        }
+        
+        .sticky-cta-mobile button {
+            flex: 1;
+            padding: 12px 16px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 13px;
+            white-space: nowrap;
+        }
+        
+        .sticky-cta-primary {
+            background: #4b7fff;
+            color: white;
+        }
+        
+        .sticky-cta-primary:active {
+            background: #3a5fdd;
+        }
+        
+        .sticky-cta-secondary {
+            background: transparent;
+            color: #e0e7ff;
+            border: 1px solid #4b7fff;
+        }
+        
+        .sticky-cta-secondary:active {
+            background: #4b7fff;
+            color: white;
+        }
+        
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .container {
@@ -859,8 +907,35 @@
                 margin-bottom: 20px;
             }
             
+            .hero-content p {
+                font-size: 15px;
+            }
+            
             .hero-image {
                 height: 250px;
+            }
+            
+            .hero-stats {
+                gap: 20px;
+            }
+            
+            .stat-number {
+                font-size: 32px;
+            }
+            
+            .social-proof {
+                gap: 10px;
+            }
+            
+            .proof-text {
+                font-size: 12px;
+            }
+            
+            .btn-secondary {
+                margin-left: 0;
+                display: block;
+                width: 100%;
+                margin-top: 10px;
             }
             
             .how-it-works {
@@ -887,15 +962,40 @@
                 font-size: 32px;
             }
             
+            .section-subtitle, .membership-subtitle {
+                font-size: 14px;
+            }
+            
             .cta h2 {
                 font-size: 32px;
             }
             
-            .btn-secondary {
-                margin-left: 0;
-                display: block;
-                width: 100%;
-                margin-top: 10px;
+            .course-name {
+                font-size: 18px;
+            }
+            
+            .course-description {
+                font-size: 12px;
+            }
+            
+            .sticky-cta-mobile {
+                display: flex;
+            }
+            
+            body {
+                padding-bottom: 70px;
+            }
+            
+            header {
+                padding: 12px 0;
+            }
+            
+            .logo {
+                font-size: 20px;
+            }
+            
+            nav a {
+                font-size: 13px;
             }
         }
         
@@ -906,6 +1006,7 @@
             
             .hero-content h1 {
                 font-size: 28px;
+                line-height: 1.2;
             }
             
             .hero-image {
@@ -914,6 +1015,39 @@
             
             .section-title, .membership-title, .cta h2 {
                 font-size: 26px;
+            }
+            
+            .section-subtitle, .membership-subtitle {
+                font-size: 13px;
+            }
+            
+            .stat-number {
+                font-size: 28px;
+            }
+            
+            .stat-label {
+                font-size: 10px;
+            }
+            
+            .step-number {
+                font-size: 32px;
+            }
+            
+            .step-content h3 {
+                font-size: 16px;
+            }
+            
+            .tier-price {
+                font-size: 30px;
+            }
+            
+            .course-price {
+                font-size: 24px;
+            }
+            
+            .sticky-cta-mobile button {
+                font-size: 12px;
+                padding: 10px 12px;
             }
         }
     </style>
@@ -1047,36 +1181,36 @@
                 <div class="course-card">
                     <div class="course-image" style="background-image: url('https://images.unsplash.com/photo-1677442d019cecf8ea1b3edd5ada8d2e9b48e5e4?w=400&h=200&fit=crop');"></div>
                     <div class="course-body">
-                        <div class="course-level">Beginner</div>
+                        <div class="course-level">Ages 5-7</div>
                         <div class="course-name">AI Basics For Beginners</div>
                         <div class="course-members">👥 2,345 Members</div>
                         <div class="course-description">Learn essential AI foundations through easy lessons and guided practice.</div>
-                        <div class="course-price">$49</div>
-                        <button class="course-button">Get Started</button>
+                        <div class="course-price">$15</div>
+                        <button class="course-button" onclick="scrollToSignup()">Enroll Now</button>
                     </div>
                 </div>
                 
                 <div class="course-card">
                     <div class="course-image" style="background-image: url('https://images.unsplash.com/photo-1525921429033-04b9ac43d9a7?w=400&h=200&fit=crop');"></div>
                     <div class="course-body">
-                        <div class="course-level">Intermediate</div>
+                        <div class="course-level">Ages 8-10</div>
                         <div class="course-name">Machine Learning With Python</div>
                         <div class="course-members">👥 1,305 Members</div>
                         <div class="course-description">Build practical machine learning projects using Python and real-world data sets.</div>
-                        <div class="course-price">$79</div>
-                        <button class="course-button">Get Started</button>
+                        <div class="course-price">$25</div>
+                        <button class="course-button" onclick="scrollToSignup()">Enroll Now</button>
                     </div>
                 </div>
                 
                 <div class="course-card">
                     <div class="course-image" style="background-image: url('https://images.unsplash.com/photo-1620712014955-4d4ade7fc141?w=400&h=200&fit=crop');"></div>
                     <div class="course-body">
-                        <div class="course-level">Intermediate</div>
+                        <div class="course-level">Ages 11-14</div>
                         <div class="course-name">Deep Learning Made Simple</div>
                         <div class="course-members">👥 1,675 Members</div>
                         <div class="course-description">Master neural networks and training techniques using TensorFlow.</div>
-                        <div class="course-price">$89</div>
-                        <button class="course-button">Get Started</button>
+                        <div class="course-price">$35</div>
+                        <button class="course-button" onclick="scrollToSignup()">Enroll Now</button>
                     </div>
                 </div>
             </div>
@@ -1198,7 +1332,7 @@
                         <li>Monthly live Q&A with instructors</li>
                         <li>Certificate for each completed course</li>
                     </ul>
-                    <button class="tier-button">Join Now</button>
+                    <button class="tier-button" onclick="scrollToSignup()">Join Now</button>
                 </div>
                 
                 <div class="tier">
@@ -1212,7 +1346,7 @@
                         <li>Project-based learning tracks</li>
                         <li>Priority email support</li>
                     </ul>
-                    <button class="tier-button">Join Now</button>
+                    <button class="tier-button" onclick="scrollToSignup()">Join Now</button>
                 </div>
                 
                 <div class="tier">
@@ -1226,7 +1360,7 @@
                         <li>1 on 1 mentorship session monthly</li>
                         <li>Priority support & certification badge</li>
                     </ul>
-                    <button class="tier-button">Join Now</button>
+                    <button class="tier-button" onclick="scrollToSignup()">Join Now</button>
                 </div>
             </div>
         </section>
@@ -1235,14 +1369,14 @@
     <!-- CTA -->
     <div class="container">
         <section class="cta" id="signup">
-            <h2>Build Your Future In AI. Start Learning Now!</h2>
-            <p>Join thousands of learners building the skills that matter.</p>
+            <h2>Ready To Transform Your Future?</h2>
+            <p>Join thousands of learners building the skills that matter. Get started with free preview access today.</p>
             <div id="emailMessage"></div>
             <div class="email-form">
                 <input type="email" placeholder="Enter your email" id="emailInput">
-                <button onclick="handleSignup()">Enroll Today →</button>
+                <button onclick="handleSignup()">Get Free Preview →</button>
             </div>
-            <div class="form-note">✓ Free preview • No credit card • Cancel anytime</div>
+            <div class="form-note">✓ Free preview • No credit card required • Cancel anytime</div>
         </section>
     </div>
     
@@ -1252,6 +1386,12 @@
             <p>&copy; 2026 Aplosol. Building AI literacy for the future. 🚀</p>
         </div>
     </footer>
+    
+    <!-- Sticky Mobile CTA -->
+    <div class="sticky-cta-mobile" id="stickyCta">
+        <button class="sticky-cta-primary" onclick="scrollToSignup()">Get Started</button>
+        <button class="sticky-cta-secondary" onclick="scrollToCourses()">Explore</button>
+    </div>
     
     <script>
         function toggleMenu() {
@@ -1266,10 +1406,12 @@
         
         function scrollToSignup() {
             document.getElementById('signup').scrollIntoView({ behavior: 'smooth' });
+            closeMenu();
         }
         
         function scrollToCourses() {
             document.getElementById('courses').scrollIntoView({ behavior: 'smooth' });
+            closeMenu();
         }
         
         function toggleFaq(element) {
@@ -1304,6 +1446,20 @@
             const hamburger = document.querySelector('.hamburger');
             if (!nav.contains(event.target) && !hamburger.contains(event.target)) {
                 closeMenu();
+            }
+        });
+        
+        // Hide sticky CTA when near signup
+        window.addEventListener('scroll', function() {
+            const stickyCta = document.getElementById('stickyCta');
+            const signupSection = document.getElementById('signup');
+            const signupTop = signupSection.offsetTop;
+            const currentScroll = window.scrollY + window.innerHeight;
+            
+            if (currentScroll > signupTop) {
+                stickyCta.style.display = 'none';
+            } else {
+                stickyCta.style.display = 'flex';
             }
         });
     </script>
