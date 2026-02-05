@@ -12,248 +12,326 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: #fafafa;
+            color: #fff;
+            background: #0f172a;
             overflow-x: hidden;
         }
         
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 40px;
         }
         
-        /* Animations */
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        
-        @keyframes glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(102, 126, 234, 0.3); }
-            50% { box-shadow: 0 0 40px rgba(102, 126, 234, 0.6); }
-        }
-        
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
+        /* Tech Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(75, 127, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(75, 127, 255, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
         }
         
         /* Header */
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
             padding: 20px 0;
-            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             position: sticky;
             top: 0;
             z-index: 100;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(75, 127, 255, 0.1);
         }
         
         .logo {
             font-size: 28px;
             font-weight: 900;
             letter-spacing: -1px;
+            color: #fff;
+        }
+        
+        nav {
             display: flex;
+            gap: 40px;
             align-items: center;
-            gap: 10px;
+        }
+        
+        nav a {
+            color: #e0e7ff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 14px;
+        }
+        
+        nav a:hover {
+            color: #4b7fff;
+        }
+        
+        .btn-header {
+            background: #4b7fff;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-header:hover {
+            background: #3a5fdd;
+            transform: translateY(-2px);
         }
         
         /* Hero */
         .hero {
-            padding: 100px 0;
-            text-align: center;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            position: relative;
-            overflow: hidden;
+            padding: 100px 0 120px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
         }
         
-        .hero::before {
-            content: '🚀';
-            position: absolute;
-            top: 20%;
-            left: 10%;
-            font-size: 80px;
-            opacity: 0.1;
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        .hero::after {
-            content: '💡';
-            position: absolute;
-            top: 30%;
-            right: 15%;
-            font-size: 100px;
-            opacity: 0.1;
-            animation: float 8s ease-in-out infinite reverse;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            animation: slideIn 1s ease-out;
-        }
-        
-        .hero h1 {
-            font-size: 56px;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            color: #1a1a1a;
+        .hero-content h1 {
+            font-size: 64px;
+            line-height: 1.1;
+            margin-bottom: 30px;
             font-weight: 900;
+            color: #fff;
         }
         
-        .hero-highlight {
-            background: linear-gradient(120deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            display: inline-block;
-        }
-        
-        .hero-subtitle {
-            font-size: 20px;
-            color: #555;
-            max-width: 700px;
-            margin: 0 auto 40px;
+        .hero-content p {
+            font-size: 18px;
+            color: #cbd5e1;
+            margin-bottom: 40px;
             line-height: 1.8;
         }
         
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .hero-stats {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: 900;
+            color: #4b7fff;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: #cbd5e1;
+            margin-top: 5px;
+        }
+        
+        .social-proof {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .avatars {
+            display: flex;
+            gap: -8px;
+        }
+        
+        .avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4b7fff, #8b5cf6);
+            border: 3px solid #0f172a;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+        
+        .proof-text {
+            color: #e0e7ff;
+            font-size: 14px;
+        }
+        
+        .stars {
+            color: #fbbf24;
+            font-size: 16px;
+        }
+        
+        .btn-primary {
+            background: #4b7fff;
             color: white;
-            padding: 18px 50px;
-            border-radius: 50px;
+            padding: 16px 40px;
+            border-radius: 8px;
             text-decoration: none;
-            font-weight: 700;
+            font-weight: 600;
             font-size: 16px;
             transition: all 0.3s;
             border: none;
             cursor: pointer;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-            animation: glow 2s ease-in-out infinite;
+            display: inline-block;
         }
         
-        .cta-button:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
+        .btn-primary:hover {
+            background: #3a5fdd;
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(75, 127, 255, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #e0e7ff;
+            padding: 16px 40px;
+            border: 2px solid #4b7fff;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+            cursor: pointer;
+            display: inline-block;
+            margin-left: 15px;
+        }
+        
+        .btn-secondary:hover {
+            background: #4b7fff;
+            color: white;
+        }
+        
+        .hero-image {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(135deg, rgba(75, 127, 255, 0.1), rgba(139, 92, 246, 0.1));
+            border-radius: 16px;
+            border: 1px solid rgba(75, 127, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 120px;
+            overflow: hidden;
+        }
+        
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 30%, rgba(75, 127, 255, 0.2), transparent);
         }
         
         /* Features Section */
         .features {
-            background: white;
-            padding: 80px 0;
-            border-top: 1px solid #e0e0e0;
-        }
-        
-        .section-title {
-            font-size: 44px;
-            margin-bottom: 60px;
-            text-align: center;
-            color: #1a1a1a;
-            font-weight: 900;
-        }
-        
-        .features-grid {
+            padding: 100px 0;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 40px;
-            margin: 40px 0;
         }
         
-        .feature-card {
-            background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+        .feature {
             padding: 40px;
-            border-radius: 15px;
-            border: 2px solid #e8edff;
+            background: rgba(75, 127, 255, 0.05);
+            border: 1px solid rgba(75, 127, 255, 0.1);
+            border-radius: 12px;
             transition: all 0.3s;
-            text-align: center;
         }
         
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
-            border-color: #667eea;
+        .feature:hover {
+            border-color: #4b7fff;
+            background: rgba(75, 127, 255, 0.1);
+            transform: translateY(-5px);
         }
         
         .feature-icon {
-            font-size: 60px;
+            font-size: 48px;
             margin-bottom: 20px;
-            animation: float 4s ease-in-out infinite;
         }
         
-        .feature-title {
-            font-size: 22px;
-            font-weight: 700;
+        .feature h3 {
+            font-size: 20px;
             margin-bottom: 15px;
-            color: #667eea;
+            color: #fff;
+            font-weight: 700;
         }
         
-        .feature-text {
-            color: #666;
-            line-height: 1.8;
+        .feature p {
+            font-size: 14px;
+            color: #cbd5e1;
+            line-height: 1.7;
         }
         
         /* Courses Section */
-        .courses {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            border-top: 1px solid #e0e0e0;
+        .courses-section {
+            padding: 100px 0;
+            border-top: 1px solid rgba(75, 127, 255, 0.1);
         }
         
-        .course-grid {
+        .section-title {
+            font-size: 48px;
+            text-align: center;
+            margin-bottom: 70px;
+            font-weight: 900;
+        }
+        
+        .courses-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin: 60px 0;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
         }
         
         .course-card {
-            background: white;
-            border-radius: 15px;
+            background: rgba(30, 41, 82, 0.4);
+            border: 1px solid rgba(75, 127, 255, 0.2);
+            border-radius: 12px;
             overflow: hidden;
-            transition: all 0.4s;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transform: translateY(0);
+            transition: all 0.3s;
         }
         
         .course-card:hover {
-            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.3);
-            transform: translateY(-15px);
+            border-color: #4b7fff;
+            background: rgba(30, 41, 82, 0.8);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(75, 127, 255, 0.2);
         }
         
         .course-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px 30px;
+            background: linear-gradient(135deg, #4b7fff, #8b5cf6);
+            padding: 50px 30px;
             text-align: center;
         }
         
         .course-emoji {
-            font-size: 50px;
-            margin-bottom: 15px;
+            font-size: 56px;
+            margin-bottom: 20px;
         }
         
-        .course-level {
-            font-size: 13px;
-            opacity: 0.9;
+        .course-age {
+            font-size: 12px;
             text-transform: uppercase;
             letter-spacing: 2px;
+            opacity: 0.8;
             margin-bottom: 10px;
-            font-weight: 600;
         }
         
         .course-name {
@@ -263,14 +341,8 @@
         }
         
         .course-price {
-            font-size: 36px;
+            font-size: 40px;
             font-weight: 900;
-            margin-bottom: 5px;
-        }
-        
-        .course-price-subtitle {
-            font-size: 12px;
-            opacity: 0.8;
         }
         
         .course-body {
@@ -283,10 +355,10 @@
         }
         
         .course-body li {
-            padding: 12px 0;
-            border-bottom: 1px solid #f0f0f0;
-            color: #666;
-            font-size: 15px;
+            padding: 10px 0;
+            color: #cbd5e1;
+            font-size: 14px;
+            border-bottom: 1px solid rgba(75, 127, 255, 0.1);
         }
         
         .course-body li:last-child {
@@ -294,246 +366,176 @@
         }
         
         .course-body li:before {
-            content: "✨ ";
-            color: #667eea;
+            content: "✓ ";
+            color: #4b7fff;
             font-weight: bold;
-            margin-right: 10px;
+            margin-right: 8px;
         }
         
-        .course-cta {
-            display: block;
+        .course-button {
             width: 100%;
             padding: 12px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #4b7fff;
             color: white;
-            text-align: center;
             border: none;
-            border-radius: 8px;
+            border-radius: 6px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
             margin-top: 20px;
         }
         
-        .course-cta:hover {
-            transform: scale(1.02);
+        .course-button:hover {
+            background: #3a5fdd;
         }
         
-        /* Why AI Section */
-        .why-ai {
-            background: white;
-            padding: 80px 0;
-            border-top: 1px solid #e0e0e0;
-        }
-        
-        .why-grid {
+        /* Stats Section */
+        .stats {
+            padding: 100px 0;
+            border-top: 1px solid rgba(75, 127, 255, 0.1);
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            text-align: center;
         }
         
-        .why-card {
-            background: #f8f9ff;
-            padding: 30px;
-            border-radius: 12px;
-            border-left: 4px solid #667eea;
-            transition: all 0.3s;
+        .stat {
+            padding: 40px;
         }
         
-        .why-card:hover {
-            background: #f0f4ff;
-            transform: translateX(10px);
-        }
-        
-        .why-number {
-            font-size: 32px;
+        .stat-big-number {
+            font-size: 56px;
             font-weight: 900;
-            color: #667eea;
+            color: #4b7fff;
             margin-bottom: 10px;
         }
         
-        .why-title {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: #1a1a1a;
-        }
-        
-        .why-text {
-            color: #666;
-            line-height: 1.7;
-        }
-        
-        /* Testimonials */
-        .testimonials {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            padding: 80px 0;
-            border-top: 1px solid #e0e0e0;
-        }
-        
-        .testimonial {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            border-left: 4px solid #667eea;
-            margin-bottom: 25px;
-            transition: all 0.3s;
-        }
-        
-        .testimonial:hover {
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
-        }
-        
-        .stars {
-            color: #ffc107;
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-        
-        .testimonial-text {
-            color: #555;
-            margin-bottom: 15px;
-            font-style: italic;
-            line-height: 1.8;
-        }
-        
-        .testimonial-author {
-            font-weight: 700;
-            color: #1a1a1a;
-            font-size: 15px;
+        .stat-text {
+            font-size: 16px;
+            color: #cbd5e1;
         }
         
         /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 100px 0;
+        .cta {
+            padding: 80px 0;
             text-align: center;
-            position: relative;
-            overflow: hidden;
+            border-top: 1px solid rgba(75, 127, 255, 0.1);
         }
         
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: float 20s linear infinite;
-        }
-        
-        .cta-content {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .cta-section h2 {
-            font-size: 44px;
+        .cta h2 {
+            font-size: 48px;
             margin-bottom: 20px;
             font-weight: 900;
         }
         
-        .cta-section p {
-            font-size: 19px;
-            margin-bottom: 30px;
-            opacity: 0.95;
-            line-height: 1.8;
+        .cta p {
+            font-size: 18px;
+            color: #cbd5e1;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .email-form {
             display: flex;
             gap: 12px;
-            max-width: 550px;
-            margin: 30px auto;
-            flex-wrap: wrap;
+            max-width: 600px;
+            margin: 0 auto 20px;
             justify-content: center;
+            flex-wrap: wrap;
         }
         
         .email-form input {
             flex: 1;
             min-width: 250px;
-            padding: 14px 18px;
-            border: none;
+            padding: 16px 20px;
+            border: 1px solid rgba(75, 127, 255, 0.2);
             border-radius: 8px;
-            font-size: 15px;
-            background: white;
-            color: #333;
+            background: rgba(75, 127, 255, 0.05);
+            color: white;
+            font-size: 14px;
+        }
+        
+        .email-form input::placeholder {
+            color: #7c3aed;
         }
         
         .email-form button {
-            padding: 14px 35px;
-            background: white;
-            color: #667eea;
+            padding: 16px 40px;
+            background: #4b7fff;
+            color: white;
             border: none;
             border-radius: 8px;
-            font-weight: 700;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
         }
         
         .email-form button:hover {
-            transform: scale(1.05);
+            background: #3a5fdd;
         }
         
         .form-note {
             font-size: 13px;
-            margin-top: 15px;
-            opacity: 0.85;
+            color: #7c3aed;
         }
         
         /* Footer */
         footer {
-            background: #1a1a1a;
-            color: white;
+            padding: 60px 0;
+            border-top: 1px solid rgba(75, 127, 255, 0.1);
             text-align: center;
-            padding: 40px 0;
-            margin-top: 0;
-        }
-        
-        .footer-links {
-            margin-bottom: 20px;
-        }
-        
-        .footer-links a {
-            color: #ddd;
-            text-decoration: none;
-            margin: 0 15px;
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
-            color: #667eea;
+            color: #7c3aed;
         }
         
         /* Responsive */
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+            
+            .courses-grid, .stats, .features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero-content h1 {
+                font-size: 44px;
+            }
+        }
+        
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 36px;
+            .container {
+                padding: 0 20px;
+            }
+            
+            nav {
+                gap: 20px;
+                font-size: 12px;
+            }
+            
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero-content h1 {
+                font-size: 32px;
             }
             
             .section-title {
                 font-size: 32px;
             }
             
-            .cta-section h2 {
-                font-size: 32px;
-            }
-            
-            .email-form {
-                flex-direction: column;
-            }
-            
-            .email-form input,
-            .email-form button {
-                width: 100%;
-            }
-            
-            .features-grid, .course-grid, .why-grid {
+            .courses-grid, .stats, .features {
                 grid-template-columns: 1fr;
+            }
+            
+            .hero-stats {
+                gap: 20px;
+            }
+            
+            .stat-number {
+                font-size: 32px;
             }
         }
     </style>
@@ -541,190 +543,194 @@
 <body>
     <!-- Header -->
     <header>
-        <div class="container">
-            <div class="logo">🚀 Aplosol</div>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <div class="logo">APLOSOL</div>
+            <nav>
+                <a href="#home">HOME</a>
+                <a href="#about">ABOUT</a>
+                <a href="#courses">COURSES</a>
+                <a href="#pages">PAGES</a>
+                <a href="#blog">BLOG</a>
+                <a href="#contact">CONTACT</a>
+                <button class="btn-header" onclick="scrollToSignup()">GET STARTED</button>
+            </nav>
         </div>
     </header>
     
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
+    <!-- Hero -->
+    <div class="container">
+        <section class="hero" id="home">
             <div class="hero-content">
-                <h1>The AI Era Starts <span class="hero-highlight">Young</span></h1>
-                <p class="hero-subtitle">Give your child superpowers. Aplosol makes AI learning fun, accessible, and mind-expanding—no experience needed.</p>
-                <button class="cta-button" onclick="scrollToPrice()">🎯 Start Free Preview</button>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Features Section -->
-    <section class="features">
-        <div class="container">
-            <h2 class="section-title">Why Kids Love Aplosol</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🎮</div>
-                    <div class="feature-title">Gamified Learning</div>
-                    <div class="feature-text">No boring lectures. Real AI concepts wrapped in games, puzzles, and fun challenges that stick.</div>
+                <div class="social-proof">
+                    <div class="avatars">
+                        <div class="avatar">👧</div>
+                        <div class="avatar">👦</div>
+                        <div class="avatar">👩</div>
+                        <div class="avatar">🧑</div>
+                        <div class="avatar">👨</div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <div class="proof-text">50+ Happy Learners</div>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🧠</div>
-                    <div class="feature-title">Future-Proof Skills</div>
-                    <div class="feature-text">AI is reshaping every career. Early learners get a head start that compounds year after year.</div>
+                
+                <h1>Unlock Your Future With AI Learning</h1>
+                
+                <p>Gain real world AI skills through hands on projects, expert instruction, and a flexible learning experience.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">10,000+</div>
+                        <div class="stat-label">Learners Enrolled</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Success Stories</div>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🛠️</div>
-                    <div class="feature-title">Hands-On Projects</div>
-                    <div class="feature-text">Build stuff. Train AI models. Create real projects you can show off. Learning that *actually* sticks.</div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Why AI Section -->
-    <section class="why-ai">
-        <div class="container">
-            <h2 class="section-title">The AI Skill Gap is Real</h2>
-            <div class="why-grid">
-                <div class="why-card">
-                    <div class="why-number">48%</div>
-                    <div class="why-title">Jobs will be AI-adjacent</div>
-                    <div class="why-text">By 2030, nearly half of all jobs will involve working alongside AI.</div>
-                </div>
-                <div class="why-card">
-                    <div class="why-number">1/10</div>
-                    <div class="why-title">Kids understand AI basics</div>
-                    <div class="why-text">Only 1 in 10 kids have been exposed to AI concepts in school. Be ahead of the curve.</div>
-                </div>
-                <div class="why-card">
-                    <div class="why-number">3x</div>
-                    <div class="why-title">More confident</div>
-                    <div class="why-text">Kids who learn AI early show 3x more confidence in STEM subjects.</div>
+                
+                <div>
+                    <button class="btn-primary" onclick="scrollToSignup()">Get Started →</button>
+                    <button class="btn-secondary" onclick="scrollToCourses()">Explore Courses</button>
                 </div>
             </div>
-        </div>
-    </section>
+            
+            <div class="hero-image">
+                🚀
+            </div>
+        </section>
+    </div>
     
-    <!-- Courses Section -->
-    <section class="courses">
-        <div class="container">
-            <h2 class="section-title">Courses for Every Age</h2>
-            <div class="course-grid">
+    <!-- Features -->
+    <div class="container">
+        <section class="features">
+            <div class="feature">
+                <div class="feature-icon">🎮</div>
+                <h3>Hands-On Projects</h3>
+                <p>Build real AI projects and see results immediately. Learning that sticks.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">👨‍🏫</div>
+                <h3>Expert Instructors</h3>
+                <p>Learn from industry professionals who care about your success.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">⏰</div>
+                <h3>Learn On Your Time</h3>
+                <p>Flexible scheduling that works with your life. No rigid timelines.</p>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Courses -->
+    <div class="container">
+        <section class="courses-section" id="courses">
+            <h2 class="section-title">Choose Your Path</h2>
+            
+            <div class="courses-grid">
                 <div class="course-card">
                     <div class="course-header">
                         <div class="course-emoji">🤖</div>
-                        <div class="course-level">Ages 5-7</div>
+                        <div class="course-age">Ages 5-7</div>
                         <div class="course-name">What is AI?</div>
                         <div class="course-price">$15</div>
-                        <div class="course-price-subtitle">lifetime access</div>
                     </div>
                     <div class="course-body">
                         <ul>
-                            <li>Simple, colorful intro</li>
-                            <li>Zero coding required</li>
-                            <li>2-3 modules, 20 min each</li>
-                            <li>Fun animations & stories</li>
+                            <li>Simple intro (no coding)</li>
+                            <li>Colorful animations</li>
+                            <li>2-3 modules × 20 min</li>
+                            <li>Lifetime access</li>
                         </ul>
-                        <button class="course-cta">Explore</button>
+                        <button class="course-button">Explore</button>
                     </div>
                 </div>
                 
                 <div class="course-card">
                     <div class="course-header">
                         <div class="course-emoji">🔮</div>
-                        <div class="course-level">Ages 8-10</div>
+                        <div class="course-age">Ages 8-10</div>
                         <div class="course-name">AI Around You</div>
                         <div class="course-price">$25</div>
-                        <div class="course-price-subtitle">lifetime access</div>
                     </div>
                     <div class="course-body">
                         <ul>
-                            <li>Real-world AI examples</li>
-                            <li>Interactive quizzes & games</li>
-                            <li>4 modules, 30 min each</li>
-                            <li>Certificate of completion</li>
+                            <li>Real-world examples</li>
+                            <li>Interactive quizzes</li>
+                            <li>4 modules × 30 min</li>
+                            <li>Certificate included</li>
                         </ul>
-                        <button class="course-cta">Explore</button>
+                        <button class="course-button">Explore</button>
                     </div>
                 </div>
                 
                 <div class="course-card">
                     <div class="course-header">
                         <div class="course-emoji">⚡</div>
-                        <div class="course-level">Ages 11-14</div>
+                        <div class="course-age">Ages 11-14</div>
                         <div class="course-name">Build Your AI</div>
                         <div class="course-price">$35</div>
-                        <div class="course-price-subtitle">lifetime access</div>
                     </div>
                     <div class="course-body">
                         <ul>
-                            <li>Train your own AI model</li>
-                            <li>No-code drag-and-drop</li>
-                            <li>6 modules + capstone project</li>
-                            <li>Updates forever</li>
+                            <li>Train AI models</li>
+                            <li>No-code tools</li>
+                            <li>6 modules + project</li>
+                            <li>Lifetime updates</li>
                         </ul>
-                        <button class="course-cta">Explore</button>
+                        <button class="course-button">Explore</button>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
     
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-        <div class="container">
-            <h2 class="section-title">Parents & Teachers Are Loving This</h2>
-            <div style="max-width: 700px; margin: 0 auto;">
-                <div class="testimonial">
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <div class="testimonial-text">"My daughter won't stop talking about what she learned. She's already asking to build more AI projects. This is a game-changer."</div>
-                    <div class="testimonial-author">— Sarah M., Parent (Nova Scotia)</div>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <div class="testimonial-text">"As a teacher, finding quality AI resources for kids is impossible. Aplosol filled a huge gap. My students are *engaged*. Finally."</div>
-                    <div class="testimonial-author">— Mike T., Teacher (New Brunswick)</div>
-                </div>
-                <div class="testimonial">
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <div class="testimonial-text">"I was nervous about coding. Aplosol made it fun. Now I'm the one teaching my brother. Best $25 I've ever spent."</div>
-                    <div class="testimonial-author">— Jordan P., Age 11 (Quebec)</div>
-                </div>
+    <!-- Stats -->
+    <div class="container">
+        <section class="stats">
+            <div class="stat">
+                <div class="stat-big-number">10k+</div>
+                <div class="stat-text">Students Learning</div>
             </div>
-        </div>
-    </section>
+            <div class="stat">
+                <div class="stat-big-number">4.9★</div>
+                <div class="stat-text">Average Rating</div>
+            </div>
+            <div class="stat">
+                <div class="stat-big-number">95%</div>
+                <div class="stat-text">Completion Rate</div>
+            </div>
+        </section>
+    </div>
     
-    <!-- CTA Section -->
-    <section id="pricing" class="cta-section">
-        <div class="cta-content">
-            <div class="container">
-                <h2>Ready to Level Up?</h2>
-                <p>Join hundreds of kids and parents building AI skills that matter.</p>
-                <div class="email-form">
-                    <input type="email" placeholder="your@email.com" id="emailInput" required>
-                    <button onclick="handleSignup()">Get Started Free →</button>
-                </div>
-                <p class="form-note">✨ Free preview access • No credit card needed • Cancel anytime • Join our community</p>
+    <!-- CTA -->
+    <div class="container">
+        <section class="cta" id="signup">
+            <h2>Ready to Start Your AI Journey?</h2>
+            <p>Join thousands of learners building the skills that matter.</p>
+            <div class="email-form">
+                <input type="email" placeholder="Enter your email" id="emailInput">
+                <button onclick="handleSignup()">Get Free Access →</button>
             </div>
-        </div>
-    </section>
+            <div class="form-note">✓ Free preview • No credit card • Cancel anytime</div>
+        </section>
+    </div>
     
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-links">
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
-                <a href="#privacy">Privacy</a>
-                <a href="#terms">Terms</a>
-            </div>
-            <p>&copy; 2026 Aplosol. Building AI literacy for the future. 🚀</p>
+            <p>&copy; 2026 Aplosol. Building AI literacy for the future.</p>
         </div>
     </footer>
     
     <script>
-        function scrollToPrice() {
-            document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' });
+        function scrollToSignup() {
+            document.getElementById('signup').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function scrollToCourses() {
+            document.getElementById('courses').scrollIntoView({ behavior: 'smooth' });
         }
         
         function handleSignup() {
@@ -733,8 +739,7 @@
                 alert('Please enter your email');
                 return;
             }
-            // TODO: Connect to Stripe/email service
-            alert('🎉 Welcome! Check your email for your free preview access (email service coming soon)');
+            alert('🎉 Welcome! Check your email for free access (email service coming soon)');
             document.getElementById('emailInput').value = '';
         }
     </script>
