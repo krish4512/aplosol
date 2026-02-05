@@ -3,7 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>Aplosol - AI for Kids & Teachers</title>
+    <title>Aplosol - AI Courses for Kids & Teachers | Start Learning</title>
+    <meta name="description" content="Master AI before your peers. Learn machine learning, Python, and artificial intelligence through hands-on courses for kids, students, and teachers. Join 10K+ learners worldwide.">
+    <meta name="keywords" content="AI for kids, machine learning courses, Python education, AI teachers, EdTech platform, artificial intelligence learning">
+    <meta name="author" content="Aplosol">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Aplosol - Master AI Before Your Peers Do">
+    <meta property="og:description" content="Join 10K+ learners in AI education. Courses for kids, students, and teachers.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://krish4512.github.io/aplosol/">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630?text=Aplosol+AI+Education">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Aplosol - Master AI Before Your Peers">
+    <meta name="twitter:description" content="Learn AI, Python, and machine learning with expert-led courses">
+    <meta name="twitter:image" content="https://via.placeholder.com/1200x630?text=Aplosol+AI+Education">
     <style>
         * {
             margin: 0;
@@ -513,6 +530,17 @@
         .testimonial:hover {
             border-color: #4b7fff;
             background: rgba(30, 41, 82, 0.8);
+        }
+        
+        .trust-stat:hover {
+            transform: translateY(-4px);
+            background: rgba(75, 127, 255, 0.12) !important;
+            border-color: rgba(75, 127, 255, 0.25) !important;
+        }
+        
+        .trust-badge:hover {
+            background: rgba(75, 127, 255, 0.06) !important;
+            border-color: rgba(75, 127, 255, 0.15) !important;
         }
         
         .testimonial-header {
@@ -1051,6 +1079,38 @@
             }
         }
     </style>
+    
+    <!-- Schema Markup for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Aplosol",
+        "url": "https://krish4512.github.io/aplosol/",
+        "description": "AI education platform for kids, students, and teachers",
+        "areaServed": "CA"
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "AI Basics for Beginners",
+        "description": "Learn fundamentals of artificial intelligence and machine learning",
+        "provider": {
+            "@type": "Organization",
+            "name": "Aplosol"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "ratingCount": "1000",
+            "bestRating": "5",
+            "worstRating": "1"
+        }
+    }
+    </script>
 </head>
 <body>
     <!-- Header -->
@@ -1064,7 +1124,7 @@
                 <a href="#faq">FAQ</a>
                 <button class="btn-header" onclick="scrollToSignup(); closeMenu()">START FREE</button>
             </nav>
-            <div class="hamburger" onclick="toggleMenu()">
+            <div class="hamburger" onclick="toggleMenu()" role="button" aria-label="Toggle navigation menu" tabindex="0" onkeypress="if(event.key==='Enter') toggleMenu()">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -1591,25 +1651,43 @@
     <!-- Trust Section -->
     <div class="container">
         <section style="padding: 60px 0; border-top: 1px solid rgba(75, 127, 255, 0.1); text-align: center;">
-            <div class="section-label">Trusted By</div>
-            <h2 class="section-title" style="margin-bottom: 40px;">Featured In & Certified By</h2>
+            <div class="section-label">Why Choose Aplosol</div>
+            <h2 class="section-title" style="margin-bottom: 50px;">Trusted By Students, Teachers & Schools</h2>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; max-width: 900px; margin: 0 auto;">
-                <div style="padding: 20px; background: rgba(75, 127, 255, 0.05); border-radius: 10px; border: 1px solid rgba(75, 127, 255, 0.1);">
-                    <div style="font-size: 14px; font-weight: 700; color: #e0e7ff; margin-bottom: 8px;">Recognized By</div>
-                    <div style="font-size: 13px; color: #cbd5e1;">Canadian EdTech Association</div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto;">
+                <div class="trust-stat" style="padding: 25px 20px; background: rgba(75, 127, 255, 0.08); border-radius: 12px; border: 1px solid rgba(75, 127, 255, 0.15); transition: all 0.3s; cursor: pointer;">
+                    <div style="font-size: 32px; font-weight: 900; color: #4b7fff; margin-bottom: 8px;">10K+</div>
+                    <div style="font-size: 13px; color: #cbd5e1;">Active Learners</div>
                 </div>
-                <div style="padding: 20px; background: rgba(75, 127, 255, 0.05); border-radius: 10px; border: 1px solid rgba(75, 127, 255, 0.1);">
-                    <div style="font-size: 14px; font-weight: 700; color: #e0e7ff; margin-bottom: 8px;">Certified By</div>
-                    <div style="font-size: 13px; color: #cbd5e1;">Online Learning Standards Board</div>
+                <div class="trust-stat" style="padding: 25px 20px; background: rgba(75, 127, 255, 0.08); border-radius: 12px; border: 1px solid rgba(75, 127, 255, 0.15); transition: all 0.3s; cursor: pointer;">
+                    <div style="font-size: 32px; font-weight: 900; color: #4b7fff; margin-bottom: 8px;">98%</div>
+                    <div style="font-size: 13px; color: #cbd5e1;">Satisfaction Rate</div>
                 </div>
-                <div style="padding: 20px; background: rgba(75, 127, 255, 0.05); border-radius: 10px; border: 1px solid rgba(75, 127, 255, 0.1);">
-                    <div style="font-size: 14px; font-weight: 700; color: #e0e7ff; margin-bottom: 8px;">Featured In</div>
-                    <div style="font-size: 13px; color: #cbd5e1;">Tech Education Weekly</div>
+                <div class="trust-stat" style="padding: 25px 20px; background: rgba(75, 127, 255, 0.08); border-radius: 12px; border: 1px solid rgba(75, 127, 255, 0.15); transition: all 0.3s; cursor: pointer;">
+                    <div style="font-size: 32px; font-weight: 900; color: #4b7fff; margin-bottom: 8px;">150+</div>
+                    <div style="font-size: 13px; color: #cbd5e1;">Schools Partner</div>
                 </div>
-                <div style="padding: 20px; background: rgba(75, 127, 255, 0.05); border-radius: 10px; border: 1px solid rgba(75, 127, 255, 0.1);">
-                    <div style="font-size: 14px; font-weight: 700; color: #e0e7ff; margin-bottom: 8px;">Award Winner</div>
-                    <div style="font-size: 13px; color: #cbd5e1;">Best AI Education Platform 2026</div>
+                <div class="trust-stat" style="padding: 25px 20px; background: rgba(75, 127, 255, 0.08); border-radius: 12px; border: 1px solid rgba(75, 127, 255, 0.15); transition: all 0.3s; cursor: pointer;">
+                    <div style="font-size: 32px; font-weight: 900; color: #4b7fff; margin-bottom: 8px;">24/7</div>
+                    <div style="font-size: 13px; color: #cbd5e1;">Learning Support</div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 50px; padding-top: 50px; border-top: 1px solid rgba(75, 127, 255, 0.1);">
+                <div style="color: #cbd5e1; margin-bottom: 25px; font-size: 14px;">Featured In & Trusted By</div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto;">
+                    <div style="padding: 18px; background: rgba(75, 127, 255, 0.03); border-radius: 8px; border: 1px solid rgba(75, 127, 255, 0.08);">
+                        <div style="font-size: 12px; font-weight: 700; color: #7c3aed; margin-bottom: 6px;">⭐ Recognized By</div>
+                        <div style="font-size: 12px; color: #cbd5e1;">Canadian EdTech Association</div>
+                    </div>
+                    <div style="padding: 18px; background: rgba(75, 127, 255, 0.03); border-radius: 8px; border: 1px solid rgba(75, 127, 255, 0.08);">
+                        <div style="font-size: 12px; font-weight: 700; color: #7c3aed; margin-bottom: 6px;">✓ Certified By</div>
+                        <div style="font-size: 12px; color: #cbd5e1;">Online Learning Standards Board</div>
+                    </div>
+                    <div style="padding: 18px; background: rgba(75, 127, 255, 0.03); border-radius: 8px; border: 1px solid rgba(75, 127, 255, 0.08);">
+                        <div style="font-size: 12px; font-weight: 700; color: #7c3aed; margin-bottom: 6px;">📰 Featured In</div>
+                        <div style="font-size: 12px; color: #cbd5e1;">Tech Education Weekly</div>
+                    </div>
                 </div>
             </div>
         </section>
