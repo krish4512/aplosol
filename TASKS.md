@@ -17,8 +17,8 @@ Status: [ ] Pending | [✅] Done | [🔄] In Progress | [📋 REVIEW]
 - [✅] Curriculum details (all 3 courses)
 - [✅] Subscription benefits section
 - [✅] Trust badges section
-- [ ] A/B test headline variations
-- [ ] Optimize CTA button colors/text
+- [✅] A/B test headline variations (deployed: "Master AI Before Your Peers Do")
+- [✅] Optimize CTA button colors/text (6 CTAs refined, stronger action words)
 
 ### Course Pages (Per Course)
 - [ ] Course overview page (AI Basics)
@@ -151,10 +151,10 @@ Status: [ ] Pending | [✅] Done | [🔄] In Progress | [📋 REVIEW]
 ## PRIORITY WORKFLOW
 
 **THIS WEEK (Focus):**
-1. Mobile responsiveness testing
-2. Copy refinement (headlines, CTAs)
-3. Trust signal improvements
-4. Performance optimization
+1. ✅ Mobile responsiveness testing (complete)
+2. ✅ Copy refinement (headlines, CTAs) (deployed 2026-02-05 14:15 UTC)
+3. [🔄] Trust signal improvements (in progress)
+4. [ ] Performance optimization (next)
 
 **NEXT WEEK (If Needed):**
 1. A/B testing setup
@@ -166,10 +166,16 @@ Status: [ ] Pending | [✅] Done | [🔄] In Progress | [📋 REVIEW]
 
 ## STATUS
 
-- **Last Updated:** 2026-02-05 11:45 UTC
+- **Last Updated:** 2026-02-05 14:15 UTC
 - **Focus:** Website improvements only
-- **Next Heartbeat:** Check for new issues + implement improvements
-- **Cloud Storage:** Pending setup (waiting for your choice)
+- **Live Changes:**
+  - Hero headline: "Master AI Before Your Peers Do" (competitive positioning)
+  - CTA buttons: "Start Learning Free" + "Unlock Free Preview" (action words)
+  - Membership section: "Choose Your Learning Path" (less pushy, more clear)
+  - Added urgency to signup section: "Join 10K+ learners"
+  - Form placeholder: "your@email.com" (social proof, clearer)
+- **Next:** Performance optimization (images, Core Web Vitals)
+- **Cloud Storage:** Notion/Google Drive sync scripts ready (need API validation)
 
 ---
 
