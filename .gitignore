@@ -19,3 +19,4 @@ __pycache__/
 
 # Logs
 *.log
+.google-drive-config.json
