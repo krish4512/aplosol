@@ -1,6 +1,43 @@
-# TASKS.md - Website Optimization Sprint
+# TASKS.md - Aplosol MVP Sprint
 
 Status: [ ] Pending | [✅] Done | [🔄] In Progress | [📋 REVIEW]
+
+---
+
+## MISSION CONTROL DASHBOARD IMPROVEMENTS (Priority: P0)
+
+### Phase 1: Fix Core Issues
+- [✅] Parse priority from task names (detect P0/P1/P2/P3 in brackets) (2026-02-06 04:45 UTC)
+- [✅] Assign SLA based on priority (P0=4h, P1=12h, P2=24h, P3=72h) (2026-02-06 04:45 UTC)
+- [✅] Calculate SLA health (🟢 healthy, 🟠 at risk, 🔴 breached) (2026-02-06 04:45 UTC)
+- [✅] Detect and track Started Time from [🔄] tasks (2026-02-06 04:45 UTC)
+- [✅] Detect and track Completed Time from [✅] tasks (2026-02-06 04:45 UTC)
+- [✅] Validate all emojis match status (no mismatches) (2026-02-06 04:45 UTC)
+
+### Phase 2: Dashboard Improvements
+- [✅] Add SLA column showing remaining time (2026-02-06 04:45 UTC)
+- [✅] Add SLA health indicator (emoji color-coded) (2026-02-06 04:45 UTC)
+- [✅] Add Started Time and Completed Time columns (2026-02-06 04:45 UTC)
+- [✅] Add filter by status (show/hide completed) (2026-02-06 04:45 UTC)
+- [✅] Add filter by priority (P0 only, P0-P1, etc.) (2026-02-06 04:45 UTC)
+- [✅] Add search box (find tasks by name) (2026-02-06 04:45 UTC)
+- [✅] Improve mobile responsiveness (test on small screens) (2026-02-06 04:45 UTC)
+
+### Phase 3: Accuracy & Robustness
+- [ ] Handle empty TASKS.md gracefully
+- [ ] Handle malformed task lines
+- [ ] Validate GitHub fetch (retry on failure)
+- [ ] Add error boundaries (don't crash on bad data)
+- [ ] Test with 100+ tasks (performance)
+- [✅] Auto-refresh every 2 minutes (not 5) (2026-02-06 04:45 UTC)
+
+### Phase 4: Visual Polish
+- [✅] Color-code by SLA health (🟢 green, 🟠 orange, 🔴 red rows) (2026-02-06 04:45 UTC)
+- [ ] Make completed tasks slightly faded (lower opacity)
+- [ ] Add task count by SLA health (how many at risk?)
+- [ ] Show last sync time (from GitHub)
+- [ ] Add refresh button (manual sync)
+- [ ] Show estimated completion date for in-progress tasks
 
 ---
 
@@ -21,20 +58,20 @@ Status: [ ] Pending | [✅] Done | [🔄] In Progress | [📋 REVIEW]
 - [✅] Optimize CTA button colors/text (6 CTAs refined, stronger action words)
 
 ### Course Pages (Per Course)
-- [ ] Course overview page (AI Basics)
-- [ ] Detailed curriculum breakdown
-- [ ] Student testimonials (course-specific)
-- [ ] Instructor bio section
-- [ ] FAQ (course-specific questions)
-- [ ] Pricing options per course
-- [ ] Enrollment flow mockup
+- [✅] Course overview page (AI Basics) (2026-02-06 05:00 UTC)
+- [✅] Detailed curriculum breakdown (2026-02-06 05:00 UTC)
+- [✅] Student testimonials (course-specific) (2026-02-06 05:00 UTC)
+- [✅] Instructor bio section (2026-02-06 05:00 UTC)
+- [✅] FAQ (course-specific questions) (2026-02-06 05:00 UTC)
+- [✅] Pricing options per course (2026-02-06 05:00 UTC)
+- [✅] Enrollment flow mockup (2026-02-06 05:00 UTC)
 
 ### About Page
-- [ ] Company mission statement
-- [ ] Founder story (Krish)
-- [ ] Team/instructor bios
-- [ ] Company values & vision
-- [ ] Social proof (student success stories)
+- [✅] Company mission statement (2026-02-06 05:05 UTC)
+- [✅] Founder story (Krish) (2026-02-06 05:05 UTC)
+- [✅] Team/instructor bios (2026-02-06 05:05 UTC)
+- [✅] Company values & vision (2026-02-06 05:05 UTC)
+- [✅] Social proof (student success stories) (2026-02-06 05:05 UTC)
 
 ### Blog/Resources (Optional)
 - [ ] Blog landing page
@@ -175,21 +212,26 @@ Status: [ ] Pending | [✅] Done | [🔄] In Progress | [📋 REVIEW]
 
 ## STATUS
 
-- **Last Updated:** 2026-02-05 19:37 UTC
-- **Focus:** Website improvements only
-- **Latest Session (Feb 5, 19:35 UTC) - PERFORMANCE OPTIMIZATION PHASE 1:**
-  - ✅ Extracted all CSS to external style.css (16KB minified)
-  - ✅ Extracted all JavaScript to external script.js (4KB minified)
-  - ✅ Reduced main HTML file from 76KB → 40KB
-  - ✅ Improved browser caching (external assets cached separately)
-  - ✅ Maintained 100% functionality (all features working)
-  - ✅ Committed to GitHub with performance-focused commit message
-  - ✅ Deployed to GitHub Pages (live in <1 min)
-  - 🔄 Notion sync running (async) - will track completion
-  - ❌ Google Drive sync - missing google-auth libraries (blocker)
+- **Last Updated:** 2026-02-06 05:10 UTC
+- **Focus:** Website improvements + Mission Control enhancements
+- **Latest Session (Feb 6, 04:27-05:10 UTC) - MAJOR EXPANSION PHASE:**
+  - ✅ Mission Control Dashboard Phase 1 COMPLETE (priority parsing, SLA tracking, health indicators)
+  - ✅ AI Basics course page (19KB, fully responsive, curriculum + testimonials + FAQ)
+  - ✅ Machine Learning 101 course page (21KB, 8-module curriculum, advanced projects)
+  - ✅ Deep Learning & Neural Networks course page (22KB, 10-module curriculum, production focus)
+  - ✅ About page with founder story, values, impact stats, timeline (15KB)
+  - ✅ Updated landing page to link to course pages + About
+  - ✅ All new pages use consistent dark theme (Neurix-styled)
+  - ✅ Committed all changes to GitHub (5 files, clean commit message)
 - **Live URL:** https://krish4512.github.io/aplosol/
-- **Improvements Summary:** Better caching = faster repeat visits, reduced bandwidth, cleaner code structure
-- **Next Priority:** Image optimization (WebP), Core Web Vitals audit, then new feature pages
+- **Course Pages Live:** 
+  - https://krish4512.github.io/aplosol/course-ai-basics.html
+  - https://krish4512.github.io/aplosol/course-ml-101.html
+  - https://krish4512.github.io/aplosol/course-deep-learning.html
+  - https://krish4512.github.io/aplosol/about.html
+- **Mission Control:** https://krish4512.github.io/aplosol/mission-control.html (auto-refresh every 2 min)
+- **Improvements Summary:** Complete course ecosystem with landing page + detail pages + about + enhanced task dashboard
+- **Next Priority:** (if continuing) Image optimization (WebP), Core Web Vitals, Stripe integration, email capture
 
 ---
 
