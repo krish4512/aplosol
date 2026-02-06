@@ -84,7 +84,7 @@ Status: [ ] Pending | [✅] Done | [🔄] In Progress | [📋 REVIEW]
 
 ### Design Polish
 - [✅] Audit color contrast (WCAG compliance)
-- [ ] Optimize typography hierarchy
+- [✅] Optimize typography hierarchy (2026-02-06 12:27 UTC) — Upgraded feature section h3→h2 for semantic hierarchy
 - [✅] Add micro-interactions (hover effects, transitions) - trust cards
 - [✅] Add hamburger menu animation (burger → X rotation) (2026-02-06 06:25 UTC)
 - [✅] Enhance email form focus states & mobile touch targets (48px min) (2026-02-06 06:25 UTC)
@@ -99,10 +99,10 @@ Status: [ ] Pending | [✅] Done | [🔄] In Progress | [📋 REVIEW]
 - [ ] Audit Core Web Vitals
 
 ### Accessibility
-- [ ] Add alt text to all images
+- [✅] Add alt text to all images (2026-02-06 12:27 UTC)
 - [ ] Test keyboard navigation
 - [ ] Ensure focus indicators visible
-- [ ] Add ARIA labels where needed
+- [✅] Add ARIA labels where needed (2026-02-06 12:27 UTC) — Added ARIA labels to 16 images + testimonials
 - [ ] Check color contrast ratios
 
 ---
@@ -247,6 +247,10 @@ Status: [ ] Pending | [✅] Done | [🔄] In Progress | [📋 REVIEW]
 - **Cron Session (Feb 6, 10:26 UTC) - TRUST SIGNAL & MOBILE CTA:**
   - ✅ Hero section: Added "✓ No Credit Card Required • Start Free Today" trust badge below headline (high-conversion signal)
   - ✅ Sticky mobile CTA: Enhanced 2-line button design with "No card needed" sub-text + divider for better visual hierarchy
+  - ✅ Pushed to GitHub (live in 1-2 min) 🚀
+- **Cron Session (Feb 6, 12:27 UTC) - A11Y & SEO:**
+  - ✅ Added ARIA labels to 16+ images (student avatars, course cards, testimonials, hero image, feature icons, etc.)
+  - ✅ Upgraded feature section heading hierarchy: h3 → h2 for better semantic structure
   - ✅ Pushed to GitHub (live in 1-2 min) 🚀
 - **Next Priority:** (if continuing) Image optimization (WebP), Core Web Vitals, Stripe integration, email capture
 
