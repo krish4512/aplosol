@@ -88,8 +88,8 @@ Status: [ ] Pending | [✅] Done | [🔄] In Progress | [📋 REVIEW]
 - [✅] Add micro-interactions (hover effects, transitions) - trust cards
 - [✅] Add hamburger menu animation (burger → X rotation) (2026-02-06 06:25 UTC)
 - [✅] Enhance email form focus states & mobile touch targets (48px min) (2026-02-06 06:25 UTC)
+- [✅] Review mobile touch targets (48px minimum) (2026-02-06 14:32 UTC) — Enhanced sticky CTA buttons with proper spacing + border-radius
 - [ ] Refine spacing/padding consistency
-- [ ] Review mobile touch targets (44px minimum)
 
 ### Performance
 - [ ] Optimize image sizes (WebP format)
@@ -138,6 +138,7 @@ Status: [ ] Pending | [✅] Done | [🔄] In Progress | [📋 REVIEW]
 - [ ] Update course descriptions (more specific outcomes)
 - [ ] Enhance benefit statements (pain → solution)
 - [✅] Add emotional hooks (storytelling) (2026-02-06 08:28 UTC) — CTA copy strengthened with social proof & urgency
+- [✅] Clarify signup form value prop (2026-02-06 14:32 UTC) — "All 3 courses unlocked • Lifetime access"
 - [ ] Clarify pricing (what's included, when you pay)
 
 ### SEO Content
