@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>About Aplosol | Our Mission & Team</title>
+    <meta name="description" content="Learn about Aplosol's mission to democratize AI education. Meet our founder Krish and discover why we're building the future of learning.">
+    <meta name="keywords" content="about Aplosol, AI education, founder story, team, mission">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="About Aplosol | Our Mission & Team">
+    <meta property="og:description" content="Learn about Aplosol's mission to democratize AI education.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://krish4512.github.io/aplosol/about.html">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630?text=About+Aplosol">
+    
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Aplosol",
+        "url": "https://krish4512.github.io/aplosol/",
+        "description": "AI education platform for kids, students, and teachers",
+        "areaServed": "Worldwide"
+    }
+    </script>
+    
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .about-hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 2px solid #4b7fff;
+        }
+        
+        .about-hero h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        
+        .about-hero p {
+            font-size: 18px;
+            color: #cbd5e1;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        .section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #fff;
+            border-bottom: 2px solid #4b7fff;
+            padding-bottom: 15px;
+        }
+        
+        .mission-statement {
+            background: rgba(75, 127, 255, 0.1);
+            border: 2px solid #4b7fff;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .mission-statement h3 {
+            font-size: 24px;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+        
+        .mission-statement p {
+            font-size: 16px;
+            color: #cbd5e1;
+            line-height: 1.8;
+        }
+        
+        .values {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .value {
+            background: rgba(75, 127, 255, 0.05);
+            border: 1px solid rgba(75, 127, 255, 0.2);
+            border-radius: 8px;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .value-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+        
+        .value h3 {
+            font-size: 18px;
+            color: #e0e7ff;
+            margin-bottom: 10px;
+        }
+        
+        .value p {
+            font-size: 13px;
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+        
+        .founder-section {
+            background: rgba(75, 127, 255, 0.05);
+            border: 1px solid rgba(75, 127, 255, 0.2);
+            border-radius: 8px;
+            padding: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .founder-image {
+            background: linear-gradient(135deg, #4b7fff 0%, #7c3aed 100%);
+            height: 300px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+        }
+        
+        .founder-bio h3 {
+            font-size: 24px;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+        
+        .founder-bio p {
+            font-size: 14px;
+            color: #cbd5e1;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(75, 127, 255, 0.2);
+            border: 1px solid rgba(75, 127, 255, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4b7fff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.2s;
+        }
+        
+        .social-links a:hover {
+            background: #4b7fff;
+            color: #fff;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .stat-card {
+            background: rgba(75, 127, 255, 0.1);
+            border: 1px solid rgba(75, 127, 255, 0.2);
+            border-radius: 8px;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 32px;
+            font-weight: 900;
+            color: #4b7fff;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 13px;
+            color: #cbd5e1;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #4b7fff;
+        }
+        
+        .timeline-item {
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -46px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: #4b7fff;
+            border-radius: 50%;
+            border: 3px solid #0f172a;
+        }
+        
+        .timeline-year {
+            font-size: 18px;
+            font-weight: 700;
+            color: #4b7fff;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-text {
+            font-size: 14px;
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            .about-hero h1 {
+                font-size: 28px;
+            }
+            
+            .founder-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .founder-image {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 0 20px;">
+            <div class="logo" onclick="window.location='index.html'" style="cursor: pointer;">APLOSOL</div>
+            <nav id="nav">
+                <a href="index.html#home">HOME</a>
+                <a href="index.html#courses">COURSES</a>
+                <a href="index.html#membership">PRICING</a>
+                <a href="index.html#faq">FAQ</a>
+                <button class="btn-header" onclick="window.location='index.html#signup'">START FREE</button>
+            </nav>
+            <div class="hamburger" onclick="toggleMenu()" role="button" aria-label="Toggle navigation menu" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+    
+    <!-- About Hero -->
+    <div class="about-hero">
+        <h1>🎓 Our Mission</h1>
+        <p>Democratizing AI education for every kid on the planet.</p>
+    </div>
+    
+    <!-- About Content -->
+    <div class="about-content">
+        <!-- Mission Statement -->
+        <div class="section">
+            <div class="mission-statement">
+                <h3>Why Aplosol?</h3>
+                <p>AI is reshaping the world. Kids who understand it will thrive. Kids who don't will struggle. We built Aplosol to ensure every child—regardless of background—has access to world-class AI education.</p>
+            </div>
+        </div>
+        
+        <!-- Values -->
+        <div class="section">
+            <h2>🌟 Our Values</h2>
+            <div class="values">
+                <div class="value">
+                    <div class="value-icon">🚀</div>
+                    <h3>Accessibility</h3>
+                    <p>AI education shouldn't be expensive or elite. We make it affordable for families worldwide.</p>
+                </div>
+                
+                <div class="value">
+                    <div class="value-icon">🎯</div>
+                    <h3>Hands-On Learning</h3>
+                    <p>Kids learn by building, not watching. Every course includes real projects.</p>
+                </div>
+                
+                <div class="value">
+                    <div class="value-icon">🌍</div>
+                    <h3>Global Impact</h3>
+                    <p>We dream of 1 million AI-literate kids. That changes everything.</p>
+                </div>
+                
+                <div class="value">
+                    <div class="value-icon">✨</div>
+                    <h3>Quality First</h3>
+                    <p>Industry-standard curriculum taught by AI professionals, not clickbait videos.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Founder Story -->
+        <div class="section">
+            <h2>👋 Meet the Founder</h2>
+            <div class="founder-section">
+                <div class="founder-image">👨‍💻</div>
+                <div class="founder-bio">
+                    <h3>Krish Patel</h3>
+                    <p><strong>Founder & CEO</strong></p>
+                    <p>Krish is passionate about making AI accessible to kids. After seeing how powerful AI education could be, he quit his corporate job to build Aplosol.</p>
+                    <p>With 5+ years in AI/ML and experience at tech companies, Krish brings industry expertise to a mission: every kid deserves a fair shot at the AI revolution.</p>
+                    <p>When not coding, you'll find Krish tinkering with side projects, investing in startups, or exploring how AI can solve real-world problems.</p>
+                    <div class="social-links">
+                        <a href="https://twitter.com" target="_blank" title="Twitter">𝕏</a>
+                        <a href="https://linkedin.com" target="_blank" title="LinkedIn">in</a>
+                        <a href="https://github.com" target="_blank" title="GitHub">⚡</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Impact Stats -->
+        <div class="section">
+            <h2>📈 Our Impact</h2>
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number">10K+</div>
+                    <div class="stat-label">Students Worldwide</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">Schools Partnered</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Student Satisfaction</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">35</div>
+                    <div class="stat-label">Countries Reached</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Timeline -->
+        <div class="section">
+            <h2>📅 Our Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2024</div>
+                    <div class="timeline-text">Aplosol founded. First course (AI Basics) launches with 50 students.</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">Q1 2025</div>
+                    <div class="timeline-text">Machine Learning 101 & Deep Learning courses launch. Reach 2,000 students.</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">Q2 2025</div>
+                    <div class="timeline-text">First school partnerships. Launch teacher training program.</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">Q3 2025</div>
+                    <div class="timeline-text">Hit 10,000 students. Expand to 35 countries. Launch membership tiers.</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2026 (Now)</div>
+                    <div class="timeline-text">Mission: 100K students and 500+ schools. Building AI's next generation.</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CTA -->
+        <div style="background: rgba(75, 127, 255, 0.1); border: 2px solid #4b7fff; border-radius: 12px; padding: 40px 20px; text-align: center; margin: 50px 0;">
+            <h3 style="font-size: 24px; margin-bottom: 15px; color: #fff;">Join Our Mission</h3>
+            <p style="color: #cbd5e1; margin-bottom: 20px;">Help us make AI education accessible to every kid on the planet.</p>
+            <button onclick="window.location='index.html#signup'" style="display: inline-block; background: linear-gradient(135deg, #4b7fff 0%, #7c3aed 100%); color: white; padding: 15px 40px; border-radius: 8px; border: none; font-weight: 700; cursor: pointer; font-size: 16px;">Start Learning Today</button>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer style="background: #0f172a; border-top: 1px solid rgba(75, 127, 255, 0.2); padding: 20px; text-align: center; color: #cbd5e1; font-size: 12px;">
+        <p>© 2026 Aplosol. All rights reserved. | <a href="index.html" style="color: #4b7fff;">Back to Home</a></p>
+    </footer>
+    
+    <script>
+        function toggleMenu() {
+            document.getElementById('nav').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

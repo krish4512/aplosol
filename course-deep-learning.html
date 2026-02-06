@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Deep Learning & Neural Networks | Aplosol - Advanced AI</title>
+    <meta name="description" content="Master deep learning with TensorFlow and Keras. Build neural networks, CNNs, RNNs, and deploy AI models. For ages 11+. Advanced AI engineering.">
+    <meta name="keywords" content="deep learning, neural networks, TensorFlow, Keras, CNN, RNN, advanced AI course">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Deep Learning & Neural Networks | Aplosol">
+    <meta property="og:description" content="Master deep learning with TensorFlow. Perfect for ages 11+.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://krish4512.github.io/aplosol/course-deep-learning.html">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630?text=Deep+Learning">
+    
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Deep Learning & Neural Networks",
+        "description": "Master deep learning with TensorFlow and Keras",
+        "provider": {"@type": "Organization", "name": "Aplosol"},
+        "price": "35",
+        "priceCurrency": "USD",
+        "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.7", "ratingCount": "85"}
+    }
+    </script>
+    
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .course-hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 2px solid #4b7fff;
+        }
+        
+        .course-hero h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        
+        .course-hero p {
+            font-size: 18px;
+            color: #cbd5e1;
+            max-width: 600px;
+            margin: 0 auto 20px;
+        }
+        
+        .course-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .stat {
+            background: rgba(75, 127, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(75, 127, 255, 0.2);
+        }
+        
+        .stat-number {
+            font-size: 20px;
+            font-weight: 900;
+            color: #4b7fff;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #cbd5e1;
+            margin-top: 5px;
+        }
+        
+        .course-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        .section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #fff;
+            border-bottom: 2px solid #4b7fff;
+            padding-bottom: 15px;
+        }
+        
+        .curriculum {
+            display: grid;
+            gap: 15px;
+        }
+        
+        .module {
+            background: rgba(75, 127, 255, 0.05);
+            border: 1px solid rgba(75, 127, 255, 0.2);
+            border-radius: 8px;
+            padding: 20px;
+        }
+        
+        .module h3 {
+            font-size: 16px;
+            color: #e0e7ff;
+            margin-bottom: 10px;
+        }
+        
+        .module p {
+            font-size: 14px;
+            color: #cbd5e1;
+            margin-bottom: 10px;
+        }
+        
+        .topics {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .topics li {
+            font-size: 13px;
+            color: #cbd5e1;
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .topics li:before {
+            content: "✓";
+            color: #4b7fff;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .testimonial {
+            background: rgba(75, 127, 255, 0.05);
+            border: 1px solid rgba(75, 127, 255, 0.2);
+            border-radius: 8px;
+            padding: 20px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+        
+        .testimonial-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #4b7fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: bold;
+        }
+        
+        .testimonial-name {
+            font-weight: 700;
+            color: #e0e7ff;
+        }
+        
+        .testimonial-role {
+            font-size: 12px;
+            color: #cbd5e1;
+        }
+        
+        .testimonial-text {
+            font-size: 13px;
+            color: #cbd5e1;
+            font-style: italic;
+            line-height: 1.6;
+        }
+        
+        .cta-section {
+            background: rgba(75, 127, 255, 0.1);
+            border: 2px solid #4b7fff;
+            border-radius: 12px;
+            padding: 40px 20px;
+            text-align: center;
+            margin: 50px 0;
+        }
+        
+        .cta-section h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        
+        .price {
+            font-size: 48px;
+            font-weight: 900;
+            color: #4b7fff;
+            margin: 20px 0;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #4b7fff 0%, #7c3aed 100%);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            margin: 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .faq-item {
+            background: rgba(75, 127, 255, 0.05);
+            border: 1px solid rgba(75, 127, 255, 0.2);
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .faq-question {
+            padding: 15px;
+            cursor: pointer;
+            font-weight: 700;
+            color: #e0e7ff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            padding: 0 15px 15px;
+            color: #cbd5e1;
+            font-size: 14px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+        
+        @media (max-width: 768px) {
+            .course-hero h1 {
+                font-size: 28px;
+            }
+            
+            .course-content {
+                padding: 20px 15px;
+            }
+            
+            .section h2 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 0 20px;">
+            <div class="logo" onclick="window.location='index.html'" style="cursor: pointer;">APLOSOL</div>
+            <nav id="nav">
+                <a href="index.html#home">HOME</a>
+                <a href="index.html#courses">COURSES</a>
+                <a href="index.html#membership">PRICING</a>
+                <a href="#faq">FAQ</a>
+                <button class="btn-header" onclick="scrollToSignup()">ENROLL NOW</button>
+            </nav>
+            <div class="hamburger" onclick="toggleMenu()" role="button" aria-label="Toggle navigation menu" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Course Hero -->
+    <div class="course-hero">
+        <h1>⚡ Deep Learning & Neural Networks</h1>
+        <p>Master advanced AI with TensorFlow and Keras. Build CNNs, RNNs, and deploy production models. Perfect for ages 11+.</p>
+        
+        <div class="course-stats">
+            <div class="stat">
+                <div class="stat-number">8 Weeks</div>
+                <div class="stat-label">Duration</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">10 Modules</div>
+                <div class="stat-label">Lessons</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">85 Reviews</div>
+                <div class="stat-label">4.7/5 ⭐</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">380+</div>
+                <div class="stat-label">Enrolled</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Course Content -->
+    <div class="course-content">
+        <!-- What You'll Learn -->
+        <div class="section">
+            <h2>📚 What You'll Learn</h2>
+            <div class="curriculum">
+                <div class="module">
+                    <h3>🧠 Module 1: Neural Network Fundamentals</h3>
+                    <p>Understand how neurons and layers work together.</p>
+                    <ul class="topics">
+                        <li>Perceptrons and multi-layer networks</li>
+                        <li>Activation functions (ReLU, sigmoid, tanh)</li>
+                        <li>Forward and backward propagation</li>
+                        <li>Loss functions and optimization</li>
+                    </ul>
+                </div>
+                
+                <div class="module">
+                    <h3>🛠️ Module 2: TensorFlow & Keras Setup</h3>
+                    <p>Master the industry-standard deep learning frameworks.</p>
+                    <ul class="topics">
+                        <li>TensorFlow installation and setup</li>
+                        <li>Keras API fundamentals</li>
+                        <li>Building your first neural network</li>
+                        <li>Training and evaluating models</li>
+                    </ul>
+                </div>
+                
+                <div class="module">
+                    <h3>🖼️ Module 3: Convolutional Neural Networks (CNNs)</h3>
+                    <p>Build models that understand images.</p>
+                    <ul class="topics">
+                        <li>Convolution and pooling operations</li>
+                        <li>Building a CNN from scratch</li>
+                        <li>Image classification with CIFAR-10</li>
+                        <li>Project: Build an object detector</li>
+                    </ul>
+                </div>
+                
+                <div class="module">
+                    <h3>📝 Module 4: Recurrent Neural Networks (RNNs)</h3>
+                    <p>Work with sequences and time-series data.</p>
+                    <ul class="topics">
+                        <li>LSTM and GRU cells</li>
+                        <li>Vanishing gradient problem</li>
+                        <li>Sequence-to-sequence models</li>
+                        <li>Project: Text generation with RNNs</li>
+                    </ul>
+                </div>
+                
+                <div class="module">
+                    <h3>🚀 Module 5: Transfer Learning</h3>
+                    <p>Leverage pre-trained models for your problems.</p>
+                    <ul class="topics">
+                        <li>ImageNet and pre-trained models</li>
+                        <li>Fine-tuning for your dataset</li>
+                        <li>MobileNet for mobile deployment</li>
+                        <li>Project: Build a custom image classifier</li>
+                    </ul>
+                </div>
+                
+                <div class="module">
+                    <h3>📊 Module 6: Data Augmentation & Regularization</h3>
+                    <p>Prevent overfitting and improve generalization.</p>
+                    <ul class="topics">
+                        <li>Image augmentation techniques</li>
+                        <li>Dropout and batch normalization</li>
+                        <li>L1/L2 regularization</li>
+                        <li>Early stopping strategies</li>
+                    </ul>
+                </div>
+                
+                <div class="module">
+                    <h3>🔍 Module 7: Attention & Transformers</h3>
+                    <p>Understand cutting-edge architectures.</p>
+                    <ul class="topics">
+                        <li>Attention mechanisms</li>
+                        <li>Transformer architecture</li>
+                        <li>Vision Transformers (ViT)</li>
+                        <li>Fine-tuning BERT for NLP</li>
+                    </ul>
+                </div>
+                
+                <div class="module">
+                    <h3>☁️ Module 8: Deployment & Production</h3>
+                    <p>Take models from notebook to production.</p>
+                    <ul class="topics">
+                        <li>Model serialization (SavedModel, ONNX)</li>
+                        <li>TensorFlow Serving</li>
+                        <li>Edge deployment with TensorFlow Lite</li>
+                        <li>Web API with Flask and FastAPI</li>
+                    </ul>
+                </div>
+                
+                <div class="module">
+                    <h3>🔬 Module 9: Advanced Topics</h3>
+                    <p>Explore the frontier of deep learning.</p>
+                    <ul class="topics">
+                        <li>GANs (Generative Adversarial Networks)</li>
+                        <li>Reinforcement learning basics</li>
+                        <li>Meta-learning and few-shot learning</li>
+                        <li>Research paper reading</li>
+                    </ul>
+                </div>
+                
+                <div class="module">
+                    <h3>🏆 Module 10: Capstone: Build & Deploy an AI App</h3>
+                    <p>Create a production-grade AI application.</p>
+                    <ul class="topics">
+                        <li>Design your deep learning project</li>
+                        <li>Train a state-of-the-art model</li>
+                        <li>Deploy to the web or mobile</li>
+                        <li>Earn your Deep Learning Certification</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Testimonials -->
+        <div class="section">
+            <h2>⭐ What Students Say</h2>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">RK</div>
+                        <div>
+                            <div class="testimonial-name">Rohan Kapoor</div>
+                            <div class="testimonial-role">Age 12, Bangalore</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">"I built a CNN that recognizes handwritten digits. This is the future!"</div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">SL</div>
+                        <div>
+                            <div class="testimonial-name">Sophie Lee</div>
+                            <div class="testimonial-role">Parent, Silicon Valley</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">"My son is now competing in AI competitions. This course gave him the edge!"</div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">PA</div>
+                        <div>
+                            <div class="testimonial-name">Prof. Anderson</div>
+                            <div class="testimonial-role">Teacher, Stanford</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">"Industry-grade curriculum for kids. This is how you teach AI in 2026."</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CTA -->
+        <div class="cta-section">
+            <h3>Ready to Master Deep Learning?</h3>
+            <div class="price">$35</div>
+            <p>One-time purchase. Lifetime access. 30-day money-back guarantee.</p>
+            <button class="cta-btn" onclick="scrollToSignup()">Start Free Trial</button>
+            <button class="cta-btn" style="background: rgba(75, 127, 255, 0.2); color: #4b7fff; border: 1px solid #4b7fff;">Learn More</button>
+        </div>
+        
+        <!-- FAQ -->
+        <div class="section" id="faq">
+            <h2>❓ Frequently Asked Questions</h2>
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">
+                    <span>Do I need ML 101 first?</span>
+                    <span style="font-size: 20px;">+</span>
+                </div>
+                <div class="faq-answer">
+                    Recommended but not required. If your child has strong Python skills and wants to jump in, we cover foundational concepts. But ML 101 provides great context.
+                </div>
+            </div>
+            
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">
+                    <span>What's the learning curve?</span>
+                    <span style="font-size: 20px;">+</span>
+                </div>
+                <div class="faq-answer">
+                    This is advanced. We start with basics but move quickly into state-of-the-art architectures. Best for motivated, self-directed learners who love math and coding.
+                </div>
+            </div>
+            
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">
+                    <span>Will we use GPUs?</span>
+                    <span style="font-size: 20px;">+</span>
+                </div>
+                <div class="faq-answer">
+                    Yes. We'll use free GPU resources (Google Colab, Kaggle Kernels) so students can train large models without expensive hardware.
+                </div>
+            </div>
+            
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">
+                    <span>Is this industry-standard?</span>
+                    <span style="font-size: 20px;">+</span>
+                </div>
+                <div class="faq-answer">
+                    Absolutely. We use TensorFlow, Keras, and tools used by Google, Meta, and Tesla. Your child learns the real deal.
+                </div>
+            </div>
+        </div>
+        
+        <!-- Email Signup -->
+        <div style="background: rgba(75, 127, 255, 0.1); border: 1px solid rgba(75, 127, 255, 0.2); border-radius: 8px; padding: 30px; text-align: center; margin: 50px 0;" id="signup">
+            <h3 style="font-size: 24px; margin-bottom: 15px; color: #fff;">Get Early Access + TensorFlow Cheatsheet</h3>
+            <p style="color: #cbd5e1; margin-bottom: 20px;">Join the AI revolution. Get a free TensorFlow cheatsheet and advanced syllabus.</p>
+            
+            <form onsubmit="handleSignup(event)">
+                <input type="email" id="emailInput" placeholder="Your email..." required style="padding: 12px 15px; border-radius: 6px; border: 1px solid rgba(75, 127, 255, 0.3); background: rgba(75, 127, 255, 0.05); color: #fff; width: 100%; max-width: 400px; margin-right: 10px;">
+                <button type="submit" class="cta-btn" style="margin-top: 10px;">Get Free Resources</button>
+            </form>
+            <div id="emailMessage"></div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer style="background: #0f172a; border-top: 1px solid rgba(75, 127, 255, 0.2); padding: 20px; text-align: center; color: #cbd5e1; font-size: 12px;">
+        <p>© 2026 Aplosol. All rights reserved. | <a href="index.html" style="color: #4b7fff;">Back to Home</a></p>
+    </footer>
+    
+    <script>
+        function scrollToSignup() {
+            document.getElementById('signup').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function toggleMenu() {
+            document.getElementById('nav').classList.toggle('active');
+        }
+        
+        function handleSignup(event) {
+            event.preventDefault();
+            const email = document.getElementById('emailInput').value;
+            const msg = document.getElementById('emailMessage');
+            
+            if (email.includes('@')) {
+                msg.innerHTML = '<div style="background: rgba(74, 222, 128, 0.1); color: #86efac; border: 1px solid rgba(74, 222, 128, 0.3); padding: 10px 15px; border-radius: 6px; margin-top: 10px;">✓ Success! Check your email for the TensorFlow cheatsheet.</div>';
+                document.getElementById('emailInput').value = '';
+                setTimeout(() => { msg.innerHTML = ''; }, 3000);
+            } else {
+                msg.innerHTML = '<div style="background: rgba(239, 68, 68, 0.1); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.3); padding: 10px 15px; border-radius: 6px; margin-top: 10px;">❌ Please enter a valid email</div>';
+            }
+        }
+    </script>
+</body>
+</html>

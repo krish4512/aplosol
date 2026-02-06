@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>AI Basics for Beginners | Aplosol - Learn AI Fundamentals</title>
+    <meta name="description" content="Master AI fundamentals with hands-on projects. Learn what AI is, how it works, and build your first AI project. Perfect for ages 5-7. Start free today.">
+    <meta name="keywords" content="AI for kids, beginner AI course, artificial intelligence basics, learn AI, AI fundamentals">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="AI Basics for Beginners | Aplosol">
+    <meta property="og:description" content="Master AI fundamentals with hands-on projects. Perfect for kids 5-7.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://krish4512.github.io/aplosol/course-ai-basics.html">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630?text=AI+Basics+for+Beginners">
+    
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "AI Basics for Beginners",
+        "description": "Learn artificial intelligence fundamentals with hands-on projects",
+        "provider": {"@type": "Organization", "name": "Aplosol"},
+        "price": "15",
+        "priceCurrency": "USD",
+        "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "ratingCount": "340"}
+    }
+    </script>
+    
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .course-hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 2px solid #4b7fff;
+        }
+        
+        .course-hero h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        
+        .course-hero p {
+            font-size: 18px;
+            color: #cbd5e1;
+            max-width: 600px;
+            margin: 0 auto 20px;
+        }
+        
+        .course-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .stat {
+            background: rgba(75, 127, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(75, 127, 255, 0.2);
+        }
+        
+        .stat-number {
+            font-size: 20px;
+            font-weight: 900;
+            color: #4b7fff;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #cbd5e1;
+            margin-top: 5px;
+        }
+        
+        .course-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        .section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #fff;
+            border-bottom: 2px solid #4b7fff;
+            padding-bottom: 15px;
+        }
+        
+        .curriculum {
+            display: grid;
+            gap: 15px;
+        }
+        
+        .module {
+            background: rgba(75, 127, 255, 0.05);
+            border: 1px solid rgba(75, 127, 255, 0.2);
+            border-radius: 8px;
+            padding: 20px;
+        }
+        
+        .module h3 {
+            font-size: 16px;
+            color: #e0e7ff;
+            margin-bottom: 10px;
+        }
+        
+        .module p {
+            font-size: 14px;
+            color: #cbd5e1;
+            margin-bottom: 10px;
+        }
+        
+        .topics {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .topics li {
+            font-size: 13px;
+            color: #cbd5e1;
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .topics li:before {
+            content: "✓";
+            color: #4b7fff;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .testimonial {
+            background: rgba(75, 127, 255, 0.05);
+            border: 1px solid rgba(75, 127, 255, 0.2);
+            border-radius: 8px;
+            padding: 20px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+        
+        .testimonial-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #4b7fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: bold;
+        }
+        
+        .testimonial-name {
+            font-weight: 700;
+            color: #e0e7ff;
+        }
+        
+        .testimonial-role {
+            font-size: 12px;
+            color: #cbd5e1;
+        }
+        
+        .testimonial-text {
+            font-size: 13px;
+            color: #cbd5e1;
+            font-style: italic;
+            line-height: 1.6;
+        }
+        
+        .cta-section {
+            background: rgba(75, 127, 255, 0.1);
+            border: 2px solid #4b7fff;
+            border-radius: 12px;
+            padding: 40px 20px;
+            text-align: center;
+            margin: 50px 0;
+        }
+        
+        .cta-section h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        
+        .price {
+            font-size: 48px;
+            font-weight: 900;
+            color: #4b7fff;
+            margin: 20px 0;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #4b7fff 0%, #7c3aed 100%);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            margin: 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .faq-item {
+            background: rgba(75, 127, 255, 0.05);
+            border: 1px solid rgba(75, 127, 255, 0.2);
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .faq-question {
+            padding: 15px;
+            cursor: pointer;
+            font-weight: 700;
+            color: #e0e7ff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            padding: 0 15px 15px;
+            color: #cbd5e1;
+            font-size: 14px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+        
+        @media (max-width: 768px) {
+            .course-hero h1 {
+                font-size: 28px;
+            }
+            
+            .course-content {
+                padding: 20px 15px;
+            }
+            
+            .section h2 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 0 20px;">
+            <div class="logo" onclick="window.location='index.html'" style="cursor: pointer;">APLOSOL</div>
+            <nav id="nav">
+                <a href="index.html#home">HOME</a>
+                <a href="index.html#courses">COURSES</a>
+                <a href="index.html#membership">PRICING</a>
+                <a href="#faq">FAQ</a>
+                <button class="btn-header" onclick="scrollToSignup()">ENROLL NOW</button>
+            </nav>
+            <div class="hamburger" onclick="toggleMenu()" role="button" aria-label="Toggle navigation menu" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Course Hero -->
+    <div class="course-hero">
+        <h1>🤖 AI Basics for Beginners</h1>
+        <p>Master artificial intelligence fundamentals with hands-on projects. Perfect for ages 5-7.</p>
+        
+        <div class="course-stats">
+            <div class="stat">
+                <div class="stat-number">4 Weeks</div>
+                <div class="stat-label">Duration</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">5 Modules</div>
+                <div class="stat-label">Lessons</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">340 Reviews</div>
+                <div class="stat-label">4.9/5 ⭐</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">1,200+</div>
+                <div class="stat-label">Enrolled</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Course Content -->
+    <div class="course-content">
+        <!-- What You'll Learn -->
+        <div class="section">
+            <h2>📚 What You'll Learn</h2>
+            <div class="curriculum">
+                <div class="module">
+                    <h3>📌 Module 1: What is AI?</h3>
+                    <p>Discover the magic behind artificial intelligence and see it in action.</p>
+                    <ul class="topics">
+                        <li>AI in everyday life (Siri, Netflix, games)</li>
+                        <li>How computers learn</li>
+                        <li>Differences between AI and humans</li>
+                        <li>Hands-on: Interact with an AI chatbot</li>
+                    </ul>
+                </div>
+                
+                <div class="module">
+                    <h3>🧠 Module 2: How Do Machines Learn?</h3>
+                    <p>Understand the training process behind AI systems.</p>
+                    <ul class="topics">
+                        <li>Data and how it teaches AI</li>
+                        <li>Pattern recognition</li>
+                        <li>Building a simple image classifier</li>
+                        <li>Project: Train a model to recognize shapes</li>
+                    </ul>
+                </div>
+                
+                <div class="module">
+                    <h3>🎮 Module 3: AI Games & Fun Projects</h3>
+                    <p>Create your first AI-powered project.</p>
+                    <ul class="topics">
+                        <li>AI game mechanics</li>
+                        <li>Decision-making with AI</li>
+                        <li>Building a simple game AI</li>
+                        <li>Project: Create your own AI game character</li>
+                    </ul>
+                </div>
+                
+                <div class="module">
+                    <h3>🚀 Module 4: Real-World AI Applications</h3>
+                    <p>Explore how companies use AI today.</p>
+                    <ul class="topics">
+                        <li>AI in healthcare, cars, and space</li>
+                        <li>Ethics in AI</li>
+                        <li>The future of AI</li>
+                        <li>Career paths in AI</li>
+                    </ul>
+                </div>
+                
+                <div class="module">
+                    <h3>🏆 Module 5: Capstone Project</h3>
+                    <p>Complete your AI journey with a final project.</p>
+                    <ul class="topics">
+                        <li>Choose your project (game, image classifier, chatbot)</li>
+                        <li>Build and test</li>
+                        <li>Share with the community</li>
+                        <li>Earn your AI Basics Certificate</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Testimonials -->
+        <div class="section">
+            <h2>⭐ What Students Say</h2>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">AC</div>
+                        <div>
+                            <div class="testimonial-name">Aisha Chen</div>
+                            <div class="testimonial-role">Age 6, Seattle</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">"I loved building the AI game! Now I want to be an AI scientist when I grow up!"</div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">JM</div>
+                        <div>
+                            <div class="testimonial-name">James Miller</div>
+                            <div class="testimonial-role">Parent, Toronto</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">"My son was completely engaged. The projects made learning feel like play. Highly recommend!"</div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">SR</div>
+                        <div>
+                            <div class="testimonial-name">Sarah Rodriguez</div>
+                            <div class="testimonial-role">Teacher, Mexico City</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">"Perfect for introducing AI to young students. The curriculum is clear and engaging. My class loved it!"</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CTA -->
+        <div class="cta-section">
+            <h3>Ready to Explore AI?</h3>
+            <div class="price">$15</div>
+            <p>One-time purchase. Lifetime access. 30-day money-back guarantee.</p>
+            <button class="cta-btn" onclick="scrollToSignup()">Start Free Trial</button>
+            <button class="cta-btn" style="background: rgba(75, 127, 255, 0.2); color: #4b7fff; border: 1px solid #4b7fff;">Learn More</button>
+        </div>
+        
+        <!-- FAQ -->
+        <div class="section" id="faq">
+            <h2>❓ Frequently Asked Questions</h2>
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">
+                    <span>What age is this course for?</span>
+                    <span style="font-size: 20px;">+</span>
+                </div>
+                <div class="faq-answer">
+                    This course is designed for ages 5-7, but curious 4-year-olds and 8-year-olds can join too! The material is hands-on and visual, making it accessible for early learners.
+                </div>
+            </div>
+            
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">
+                    <span>Do I need any coding experience?</span>
+                    <span style="font-size: 20px;">+</span>
+                </div>
+                <div class="faq-answer">
+                    Not at all! This is a complete beginner course. We introduce concepts visually before any typing. All code comes pre-made—students focus on understanding logic, not syntax.
+                </div>
+            </div>
+            
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">
+                    <span>How long does it take?</span>
+                    <span style="font-size: 20px;">+</span>
+                </div>
+                <div class="faq-answer">
+                    The course is designed to take about 4 weeks with 2-3 hours per week. However, students can go at their own pace—many finish faster, and some prefer to take more time.
+                </div>
+            </div>
+            
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">
+                    <span>What if my child doesn't like it?</span>
+                    <span style="font-size: 20px;">+</span>
+                </div>
+                <div class="faq-answer">
+                    Full 30-day money-back guarantee, no questions asked. If your child isn't loving it, we'll refund your $15 instantly.
+                </div>
+            </div>
+        </div>
+        
+        <!-- Email Signup -->
+        <div style="background: rgba(75, 127, 255, 0.1); border: 1px solid rgba(75, 127, 255, 0.2); border-radius: 8px; padding: 30px; text-align: center; margin: 50px 0;" id="signup">
+            <h3 style="font-size: 24px; margin-bottom: 15px; color: #fff;">Get Early Access + Free Resources</h3>
+            <p style="color: #cbd5e1; margin-bottom: 20px;">Join 10,000+ families learning AI. Get curriculum guides and tips sent to your inbox.</p>
+            
+            <form onsubmit="handleSignup(event)">
+                <input type="email" id="emailInput" placeholder="Your email..." required style="padding: 12px 15px; border-radius: 6px; border: 1px solid rgba(75, 127, 255, 0.3); background: rgba(75, 127, 255, 0.05); color: #fff; width: 100%; max-width: 400px; margin-right: 10px;">
+                <button type="submit" class="cta-btn" style="margin-top: 10px;">Get Free Access</button>
+            </form>
+            <div id="emailMessage"></div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer style="background: #0f172a; border-top: 1px solid rgba(75, 127, 255, 0.2); padding: 20px; text-align: center; color: #cbd5e1; font-size: 12px;">
+        <p>© 2026 Aplosol. All rights reserved. | <a href="index.html" style="color: #4b7fff;">Back to Home</a></p>
+    </footer>
+    
+    <script>
+        function scrollToSignup() {
+            document.getElementById('signup').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function toggleMenu() {
+            document.getElementById('nav').classList.toggle('active');
+        }
+        
+        function handleSignup(event) {
+            event.preventDefault();
+            const email = document.getElementById('emailInput').value;
+            const msg = document.getElementById('emailMessage');
+            
+            if (email.includes('@')) {
+                msg.innerHTML = '<div style="background: rgba(74, 222, 128, 0.1); color: #86efac; border: 1px solid rgba(74, 222, 128, 0.3); padding: 10px 15px; border-radius: 6px; margin-top: 10px;">✓ Success! Check your email for free curriculum guide.</div>';
+                document.getElementById('emailInput').value = '';
+                setTimeout(() => { msg.innerHTML = ''; }, 3000);
+            } else {
+                msg.innerHTML = '<div style="background: rgba(239, 68, 68, 0.1); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.3); padding: 10px 15px; border-radius: 6px; margin-top: 10px;">❌ Please enter a valid email</div>';
+            }
+        }
+    </script>
+</body>
+</html>
