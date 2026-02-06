@@ -33,7 +33,7 @@ Status: [ ] Pending | [✅] Done | [🔄] In Progress | [📋 REVIEW]
 
 ### Phase 4: Visual Polish
 - [✅] Color-code by SLA health (🟢 green, 🟠 orange, 🔴 red rows) (2026-02-06 04:45 UTC)
-- [ ] Make completed tasks slightly faded (lower opacity)
+- [✅] Make completed tasks slightly faded (lower opacity) (2026-02-06 06:25 UTC)
 - [ ] Add task count by SLA health (how many at risk?)
 - [ ] Show last sync time (from GitHub)
 - [ ] Add refresh button (manual sync)
@@ -86,6 +86,8 @@ Status: [ ] Pending | [✅] Done | [🔄] In Progress | [📋 REVIEW]
 - [✅] Audit color contrast (WCAG compliance)
 - [ ] Optimize typography hierarchy
 - [✅] Add micro-interactions (hover effects, transitions) - trust cards
+- [✅] Add hamburger menu animation (burger → X rotation) (2026-02-06 06:25 UTC)
+- [✅] Enhance email form focus states & mobile touch targets (48px min) (2026-02-06 06:25 UTC)
 - [ ] Refine spacing/padding consistency
 - [ ] Review mobile touch targets (44px minimum)
 
@@ -223,6 +225,12 @@ Status: [ ] Pending | [✅] Done | [🔄] In Progress | [📋 REVIEW]
   - ✅ Updated landing page to link to course pages + About
   - ✅ All new pages use consistent dark theme (Neurix-styled)
   - ✅ Committed all changes to GitHub (5 files, clean commit message)
+  
+- **Cron Session (Feb 6, 06:25 UTC) - UX POLISH:**
+  - ✅ Hamburger menu animation: burger icon smoothly rotates to X when active
+  - ✅ Enhanced email signup: stronger value prop ("Start Building AI Projects Today")
+  - ✅ Better form UX: focus states, 48px touch targets, smooth transitions
+  - ✅ Pushed to GitHub (live in 1-2 min) 🚀
 - **Live URL:** https://krish4512.github.io/aplosol/
 - **Course Pages Live:** 
   - https://krish4512.github.io/aplosol/course-ai-basics.html
