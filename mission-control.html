@@ -165,10 +165,74 @@
         }
         
         .task-sla {
-            min-width: 80px;
+            min-width: 100px;
             text-align: center;
             font-size: 12px;
             color: #cbd5e1;
+        }
+        
+        .task-item.sla-healthy {
+            border-left: 4px solid #4ade80;
+        }
+        
+        .task-item.sla-at-risk {
+            border-left: 4px solid #facc15;
+            background: rgba(250, 204, 21, 0.02);
+        }
+        
+        .task-item.sla-breached {
+            border-left: 4px solid #ef4444;
+            background: rgba(239, 68, 68, 0.05);
+        }
+        
+        .sla-health {
+            font-weight: 700;
+        }
+        
+        .filter-bar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            background: rgba(75, 127, 255, 0.1);
+            border: 1px solid rgba(75, 127, 255, 0.3);
+            color: #e0e7ff;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .filter-btn:hover {
+            background: rgba(75, 127, 255, 0.2);
+        }
+        
+        .filter-btn.active {
+            background: #4b7fff;
+            border-color: #4b7fff;
+        }
+        
+        .search-box {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 8px 12px;
+            background: rgba(75, 127, 255, 0.1);
+            border: 1px solid rgba(75, 127, 255, 0.3);
+            border-radius: 6px;
+            color: #e0e7ff;
+            font-size: 12px;
+        }
+        
+        .search-box input::placeholder {
+            color: #7c3aed;
         }
         
         .status-group {
@@ -181,6 +245,10 @@
             color: #cbd5e1;
             margin-bottom: 10px;
             padding: 0 15px;
+        }
+        
+        .priority-emoji {
+            font-size: 14px;
         }
         
         .footer {
@@ -278,6 +346,19 @@
             </div>
         </div>
         
+        <!-- Filter Bar -->
+        <div class="filter-bar">
+            <button class="filter-btn active" onclick="filterByStatus('all')" data-filter="all">All</button>
+            <button class="filter-btn" onclick="filterByStatus('in-progress')" data-filter="in-progress">🔄 In Progress</button>
+            <button class="filter-btn" onclick="filterByStatus('pending')" data-filter="pending">⏳ Pending</button>
+            <button class="filter-btn" onclick="filterByStatus('completed')" data-filter="completed">✅ Completed</button>
+            <button class="filter-btn" onclick="filterByPriority('P0')" data-filter="p0">🔥 P0 Only</button>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search tasks..." onkeyup="applyFilters()">
+            </div>
+            <button class="filter-btn" onclick="toggleCompleted()" id="toggleBtn">Hide Completed</button>
+        </div>
+        
         <!-- Tasks by Status -->
         <div class="tasks-section">
             <h2>📋 Active Tasks</h2>
@@ -295,44 +376,179 @@
     </div>
     
     <script>
+        let allTasks = [];
+        let currentStatusFilter = 'all';
+        let currentPriorityFilter = null;
+        let hideCompletedTasks = false;
+        
+        // Parse priority from task name
+        function parsePriority(taskName) {
+            const match = taskName.match(/\[(P[0-3])\]/);
+            return match ? match[1] : 'P3'; // Default to P3
+        }
+        
+        // Get priority emoji
+        function getPriorityEmoji(priority) {
+            const emojis = { 'P0': '🔥', 'P1': '⚠️', 'P2': '🟡', 'P3': '🟢' };
+            return emojis[priority] || '🟡';
+        }
+        
+        // Get SLA duration in milliseconds
+        function getSLADuration(priority) {
+            const slas = { 'P0': 4 * 60 * 60 * 1000, 'P1': 12 * 60 * 60 * 1000, 'P2': 24 * 60 * 60 * 1000, 'P3': 72 * 60 * 60 * 1000 };
+            return slas[priority] || slas['P3'];
+        }
+        
+        // Parse timestamp from task line (format: - [status] task (YYYY-MM-DD HH:MM))
+        function parseTimestamp(line) {
+            const match = line.match(/\((\d{4}-\d{2}-\d{2} \d{2}:\d{2})\)/);
+            return match ? new Date(match[1]) : null;
+        }
+        
+        // Calculate SLA health
+        function calculateSLAHealth(task) {
+            if (task.status === 'Completed') return 'healthy'; // Completed tasks are always healthy
+            
+            const startTime = task.startedTime ? new Date(task.startedTime) : new Date();
+            const now = new Date();
+            const elapsed = now - startTime;
+            const slaDuration = getSLADuration(task.priority);
+            const percentUsed = (elapsed / slaDuration) * 100;
+            
+            if (percentUsed >= 100) return 'breached';
+            if (percentUsed >= 75) return 'at-risk';
+            return 'healthy';
+        }
+        
+        // Format remaining time
+        function formatRemainingTime(task) {
+            if (task.status === 'Completed') return '✅ Done';
+            
+            const startTime = task.startedTime ? new Date(task.startedTime) : new Date();
+            const now = new Date();
+            const elapsed = now - startTime;
+            const slaDuration = getSLADuration(task.priority);
+            const remaining = slaDuration - elapsed;
+            
+            if (remaining <= 0) return '🔴 Breached';
+            
+            const hours = Math.floor(remaining / (60 * 60 * 1000));
+            const minutes = Math.floor((remaining % (60 * 60 * 1000)) / (60 * 1000));
+            
+            return `${hours}h ${minutes}m`;
+        }
+        
         // Parse TASKS.md and render
         async function loadTasks() {
             try {
-                // Fetch TASKS.md from GitHub
                 const response = await fetch('https://raw.githubusercontent.com/krish4512/aplosol/main/TASKS.md');
                 const tasksText = await response.text();
                 
                 const tasks = [];
-                let currentWeek = null;
                 
-                tasksText.split('\n').forEach(line => {
-                    if (line.startsWith('## WEEK')) {
-                        currentWeek = line.split('(')[0].trim().replace('## ', '');
-                    } else if (line.startsWith('- [✅]')) {
-                        const name = line.replace('- [✅]', '').trim();
-                        if (name) tasks.push({ name, status: 'Completed', week: currentWeek });
-                    } else if (line.startsWith('- [🔄]')) {
-                        const name = line.replace('- [🔄]', '').trim();
-                        if (name) tasks.push({ name, status: 'In Progress', week: currentWeek });
-                    } else if (line.startsWith('- [ ]')) {
-                        const name = line.replace('- [ ]', '').trim();
-                        if (name) tasks.push({ name, status: 'To Do', week: currentWeek });
+                tasksText.split('\n').forEach((line, idx) => {
+                    if (line.match(/^- \[✅\]/)) {
+                        const cleanName = line.replace(/^- \[✅\]/, '').trim();
+                        const priority = parsePriority(cleanName);
+                        const completedTime = parseTimestamp(line);
+                        tasks.push({
+                            id: idx,
+                            name: cleanName,
+                            status: 'Completed',
+                            priority: priority,
+                            completedTime: completedTime
+                        });
+                    } else if (line.match(/^- \[🔄\]/)) {
+                        const cleanName = line.replace(/^- \[🔄\]/, '').trim();
+                        const priority = parsePriority(cleanName);
+                        const startedTime = parseTimestamp(line);
+                        tasks.push({
+                            id: idx,
+                            name: cleanName,
+                            status: 'In Progress',
+                            priority: priority,
+                            startedTime: startedTime
+                        });
+                    } else if (line.match(/^- \[ \]/)) {
+                        const cleanName = line.replace(/^- \[ \]/, '').trim();
+                        const priority = parsePriority(cleanName);
+                        tasks.push({
+                            id: idx,
+                            name: cleanName,
+                            status: 'Pending',
+                            priority: priority
+                        });
                     }
                 });
                 
-                renderTasks(tasks);
+                allTasks = tasks;
+                applyFilters();
             } catch (error) {
                 console.error('Error loading tasks:', error);
                 document.getElementById('taskList').innerHTML = '<div class="task-item" style="justify-content: center; color: #e74c3c;">Error loading tasks. Check GitHub repo.</div>';
             }
         }
         
+        function applyFilters() {
+            let filtered = allTasks;
+            
+            // Status filter
+            if (currentStatusFilter !== 'all') {
+                filtered = filtered.filter(t => {
+                    if (currentStatusFilter === 'in-progress') return t.status === 'In Progress';
+                    if (currentStatusFilter === 'pending') return t.status === 'Pending';
+                    if (currentStatusFilter === 'completed') return t.status === 'Completed';
+                    return true;
+                });
+            }
+            
+            // Priority filter
+            if (currentPriorityFilter) {
+                filtered = filtered.filter(t => t.priority === currentPriorityFilter);
+            }
+            
+            // Hide completed
+            if (hideCompletedTasks) {
+                filtered = filtered.filter(t => t.status !== 'Completed');
+            }
+            
+            // Search filter
+            const searchTerm = document.getElementById('searchInput')?.value.toLowerCase() || '';
+            if (searchTerm) {
+                filtered = filtered.filter(t => t.name.toLowerCase().includes(searchTerm));
+            }
+            
+            renderTasks(filtered);
+        }
+        
+        function filterByStatus(status) {
+            currentStatusFilter = status;
+            currentPriorityFilter = null;
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`[data-filter="${status}"]`).classList.add('active');
+            applyFilters();
+        }
+        
+        function filterByPriority(priority) {
+            currentPriorityFilter = priority;
+            currentStatusFilter = 'all';
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`[data-filter="p0"]`).classList.add('active');
+            applyFilters();
+        }
+        
+        function toggleCompleted() {
+            hideCompletedTasks = !hideCompletedTasks;
+            document.getElementById('toggleBtn').textContent = hideCompletedTasks ? 'Show Completed' : 'Hide Completed';
+            applyFilters();
+        }
+        
         function renderTasks(tasks) {
             const stats = {
-                total: tasks.length,
-                completed: tasks.filter(t => t.status === 'Completed').length,
-                inProgress: tasks.filter(t => t.status === 'In Progress').length,
-                pending: tasks.filter(t => t.status === 'To Do').length
+                total: allTasks.length,
+                completed: allTasks.filter(t => t.status === 'Completed').length,
+                inProgress: allTasks.filter(t => t.status === 'In Progress').length,
+                pending: allTasks.filter(t => t.status === 'Pending').length
             };
             
             // Update stats
@@ -343,8 +559,8 @@
             
             // Group tasks by status
             const grouped = {
-                'In Progress': tasks.filter(t => t.status === 'In Progress'),
-                'To Do': tasks.filter(t => t.status === 'To Do'),
+                'In Progress': tasks.filter(t => t.status === 'In Progress').sort((a, b) => calculateSLAHealth(b).localeCompare(calculateSLAHealth(a))),
+                'Pending': tasks.filter(t => t.status === 'Pending'),
                 'Completed': tasks.filter(t => t.status === 'Completed')
             };
             
@@ -353,31 +569,36 @@
             Object.entries(grouped).forEach(([status, taskList]) => {
                 if (taskList.length === 0) return;
                 
-                const statusEmoji = status === 'In Progress' ? '🔄' : status === 'To Do' ? '⏳' : '✅';
+                const statusEmoji = status === 'In Progress' ? '🔄' : status === 'Pending' ? '⏳' : '✅';
                 html += `<div class="status-group">
                     <div class="status-title">${statusEmoji} ${status} (${taskList.length})</div>`;
                 
                 taskList.forEach(task => {
-                    html += `<div class="task-item">
-                        <div class="task-status">${statusEmoji}</div>
-                        <div class="task-priority">🟡</div>
+                    const slaHealth = calculateSLAHealth(task);
+                    const slaHealthClass = `sla-${slaHealth}`;
+                    const priorityEmoji = getPriorityEmoji(task.priority);
+                    const remainingTime = formatRemainingTime(task);
+                    
+                    html += `<div class="task-item ${slaHealthClass}">
+                        <div class="task-status">${status === 'In Progress' ? '🔄' : status === 'Pending' ? '⏳' : '✅'}</div>
+                        <div class="task-priority priority-emoji">${priorityEmoji}</div>
                         <div class="task-name">${task.name}</div>
-                        <div class="task-sla">24h SLA</div>
+                        <div class="task-sla sla-health">${remainingTime}</div>
                     </div>`;
                 });
                 
                 html += '</div>';
             });
             
-            document.getElementById('taskList').innerHTML = html;
+            document.getElementById('taskList').innerHTML = html || '<div class="task-item" style="justify-content: center; color: #cbd5e1;">No tasks match filters</div>';
             document.getElementById('lastUpdated').textContent = new Date().toLocaleString();
         }
         
         // Load on page load
         loadTasks();
         
-        // Auto-refresh every 5 minutes
-        setInterval(loadTasks, 300000);
+        // Auto-refresh every 2 minutes
+        setInterval(loadTasks, 120000);
     </script>
 </body>
 </html>
