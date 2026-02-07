@@ -34,9 +34,9 @@ Status: [ ] Pending | [✅] Done | [🔄] In Progress | [📋 REVIEW]
 ### Phase 4: Visual Polish
 - [✅] Color-code by SLA health (🟢 green, 🟠 orange, 🔴 red rows) (2026-02-06 04:45 UTC)
 - [✅] Make completed tasks slightly faded (lower opacity) (2026-02-06 06:25 UTC)
-- [ ] Add task count by SLA health (how many at risk?)
-- [ ] Show last sync time (from GitHub)
-- [ ] Add refresh button (manual sync)
+- [✅] Add task count by SLA health (how many at risk?) (2026-02-07 04:01 UTC) — Displayed in stat cards with color coding
+- [✅] Show last sync time (from GitHub) (2026-02-07 04:01 UTC) — Added real-time sync timestamp in header
+- [✅] Add refresh button (manual sync) (2026-02-07 04:01 UTC) — Added "Sync Now" button with spinning icon + loading state
 - [ ] Show estimated completion date for in-progress tasks
 
 ---
@@ -136,10 +136,10 @@ Status: [ ] Pending | [✅] Done | [🔄] In Progress | [📋 REVIEW]
 ### Copy & Messaging
 - [✅] Refine value propositions (per section) (2026-02-06 08:28 UTC)
 - [✅] Update course descriptions (more specific outcomes) (2026-02-07 02:00 UTC) — Made outcomes action-oriented: "build a chatbot", "create real apps", "deploy AI systems"
-- [ ] Enhance benefit statements (pain → solution)
+- [✅] Enhance benefit statements (pain → solution) (2026-02-07 04:01 UTC) — Added "30-day free access" subheadline to CTA section
 - [✅] Add emotional hooks (storytelling) (2026-02-06 08:28 UTC) — CTA copy strengthened with social proof & urgency
 - [✅] Clarify signup form value prop (2026-02-06 14:32 UTC) — "All 3 courses unlocked • Lifetime access"
-- [ ] Clarify pricing (what's included, when you pay)
+- [✅] Clarify pricing (what's included, when you pay) (2026-02-07 04:01 UTC) — Updated form note: "All 3 courses unlocked • 30-day trial included • Lifetime access"
 
 ### SEO Content
 - [✅] Create title tags (50-60 chars) - "Aplosol - AI Courses for Kids & Teachers | Start Learning"
@@ -216,7 +216,7 @@ Status: [ ] Pending | [✅] Done | [🔄] In Progress | [📋 REVIEW]
 
 ## STATUS
 
-- **Last Updated:** 2026-02-06 21:59 UTC
+- **Last Updated:** 2026-02-07 04:01 UTC
 - **Focus:** Website improvements + Mission Control enhancements
 - **Latest Session (Feb 6, 04:27-05:10 UTC) - MAJOR EXPANSION PHASE:**
   - ✅ Mission Control Dashboard Phase 1 COMPLETE (priority parsing, SLA tracking, health indicators)
@@ -268,6 +268,12 @@ Status: [ ] Pending | [✅] Done | [🔄] In Progress | [📋 REVIEW]
   - ✅ Keyboard Navigation: Added focus-visible outlines (2-3px) to all interactive elements (buttons, links, form inputs, FAQ items, cards)
   - ✅ Spacing Consistency: Standardized grid gaps (25px → 30px), button padding (12px 16px with 44px min-height), card padding (28-32px)
   - ✅ A11y Compliance: Improved touch targets + keyboard accessibility + focus indicators
+  - ✅ Pushed to GitHub (live in 1-2 min) 🚀
+- **Cron Session (Feb 7, 04:01 UTC) - MISSION CONTROL & CTA ENHANCEMENTS:**
+  - ✅ Manual refresh button: "Sync Now" with spinning icon + loading state
+  - ✅ Sync status indicator: Real-time timestamp + color-coded dot (green=success, orange=syncing, red=error)
+  - ✅ Error handling: Better messages for empty/malformed TASKS.md + validation
+  - ✅ Landing page CTA: Added "30-day free access" benefit subheadline + updated form note
   - ✅ Pushed to GitHub (live in 1-2 min) 🚀
 - **Next Priority:** (if continuing) Image optimization (WebP), Core Web Vitals, Stripe integration, email capture
 
