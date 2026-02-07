@@ -42,7 +42,7 @@
         
         .stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
             gap: 15px;
             margin-bottom: 30px;
         }
@@ -55,11 +55,38 @@
             text-align: center;
         }
         
+        .stat-card.health-green {
+            background: rgba(34, 197, 94, 0.1);
+            border-color: rgba(34, 197, 94, 0.2);
+        }
+        
+        .stat-card.health-orange {
+            background: rgba(249, 115, 22, 0.1);
+            border-color: rgba(249, 115, 22, 0.2);
+        }
+        
+        .stat-card.health-red {
+            background: rgba(239, 68, 68, 0.1);
+            border-color: rgba(239, 68, 68, 0.2);
+        }
+        
         .stat-number {
             font-size: 28px;
             font-weight: 900;
             color: #4b7fff;
             margin-bottom: 5px;
+        }
+        
+        .stat-card.health-green .stat-number {
+            color: #22c55e;
+        }
+        
+        .stat-card.health-orange .stat-number {
+            color: #f97316;
+        }
+        
+        .stat-card.health-red .stat-number {
+            color: #ef4444;
         }
         
         .stat-label {
@@ -285,6 +312,22 @@
             <div class="stat-card">
                 <div class="stat-number" id="pendingTasks">0</div>
                 <div class="stat-label">⏳ Pending</div>
+            </div>
+        </div>
+        
+        <!-- SLA Health Summary -->
+        <div class="stats">
+            <div class="stat-card health-green">
+                <div class="stat-number" id="slaHealthy">0</div>
+                <div class="stat-label">🟢 Healthy</div>
+            </div>
+            <div class="stat-card health-orange">
+                <div class="stat-number" id="slaAtRisk">0</div>
+                <div class="stat-label">🟠 At Risk</div>
+            </div>
+            <div class="stat-card health-red">
+                <div class="stat-number" id="slaBreached">0</div>
+                <div class="stat-label">🔴 Breached</div>
             </div>
         </div>
         
@@ -551,11 +594,24 @@
                 pending: allTasks.filter(t => t.status === 'Pending').length
             };
             
+            // Calculate SLA health summary (for active tasks only)
+            const activeTasks = allTasks.filter(t => t.status !== 'Completed');
+            const slaHealthCount = {
+                healthy: activeTasks.filter(t => calculateSLAHealth(t) === 'healthy').length,
+                'at-risk': activeTasks.filter(t => calculateSLAHealth(t) === 'at-risk').length,
+                breached: activeTasks.filter(t => calculateSLAHealth(t) === 'breached').length
+            };
+            
             // Update stats
             document.getElementById('totalTasks').textContent = stats.total;
             document.getElementById('completedTasks').textContent = stats.completed;
             document.getElementById('inProgressTasks').textContent = stats.inProgress;
             document.getElementById('pendingTasks').textContent = stats.pending;
+            
+            // Update SLA health counts
+            document.getElementById('slaHealthy').textContent = slaHealthCount.healthy;
+            document.getElementById('slaAtRisk').textContent = slaHealthCount['at-risk'];
+            document.getElementById('slaBreached').textContent = slaHealthCount.breached;
             
             // Group tasks by status
             const grouped = {
