@@ -135,7 +135,7 @@ Status: [ ] Pending | [✅] Done | [🔄] In Progress | [📋 REVIEW]
 
 ### Copy & Messaging
 - [✅] Refine value propositions (per section) (2026-02-06 08:28 UTC)
-- [ ] Update course descriptions (more specific outcomes)
+- [✅] Update course descriptions (more specific outcomes) (2026-02-07 02:00 UTC) — Made outcomes action-oriented: "build a chatbot", "create real apps", "deploy AI systems"
 - [ ] Enhance benefit statements (pain → solution)
 - [✅] Add emotional hooks (storytelling) (2026-02-06 08:28 UTC) — CTA copy strengthened with social proof & urgency
 - [✅] Clarify signup form value prop (2026-02-06 14:32 UTC) — "All 3 courses unlocked • Lifetime access"
