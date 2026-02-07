@@ -28,9 +28,12 @@
             margin-bottom: 30px;
             border-bottom: 2px solid #4b7fff;
             padding-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
         }
         
-        h1 {
+        .header-left h1 {
             font-size: 32px;
             margin-bottom: 10px;
         }
@@ -38,6 +41,76 @@
         .meta {
             font-size: 13px;
             color: #cbd5e1;
+        }
+        
+        .header-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 10px;
+        }
+        
+        .sync-info {
+            font-size: 11px;
+            color: #cbd5e1;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .sync-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #4ade80;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .refresh-btn {
+            background: linear-gradient(135deg, #4b7fff 0%, #7c3aed 100%);
+            border: none;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .refresh-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(75, 127, 255, 0.3);
+        }
+        
+        .refresh-btn:active {
+            transform: translateY(0);
+        }
+        
+        .refresh-btn.loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+        
+        .refresh-icon {
+            display: inline-block;
+        }
+        
+        .refresh-icon.spinning {
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
         
         .stats {
@@ -291,8 +364,19 @@
 <body>
     <div class="container">
         <header>
-            <h1>🎯 Aplosol Mission Control</h1>
-            <p class="meta">Website Optimization Sprint | Real-time Task Tracking</p>
+            <div class="header-left">
+                <h1>🎯 Aplosol Mission Control</h1>
+                <p class="meta">Website Optimization Sprint | Real-time Task Tracking</p>
+            </div>
+            <div class="header-right">
+                <button class="refresh-btn" onclick="manualRefresh()" id="refreshBtn" title="Manually sync tasks from GitHub">
+                    <span class="refresh-icon" id="refreshIcon">🔄</span> Sync Now
+                </button>
+                <div class="sync-info">
+                    <div class="sync-dot" id="syncDot"></div>
+                    <span>Last sync: <span id="lastSyncTime">Loading...</span></span>
+                </div>
+            </div>
         </header>
         
         <!-- Stats -->
@@ -484,52 +568,120 @@
         // Parse TASKS.md and render
         async function loadTasks() {
             try {
-                const response = await fetch('https://raw.githubusercontent.com/krish4512/aplosol/main/TASKS.md');
+                const response = await fetch('https://raw.githubusercontent.com/krish4512/aplosol/main/TASKS.md?t=' + Date.now());
+                
+                if (!response.ok) {
+                    throw new Error(`GitHub API error: ${response.status} ${response.statusText}`);
+                }
+                
                 const tasksText = await response.text();
                 
+                // Handle empty TASKS.md
+                if (!tasksText || tasksText.trim().length === 0) {
+                    throw new Error('TASKS.md is empty');
+                }
+                
                 const tasks = [];
+                let parseErrors = 0;
                 
                 tasksText.split('\n').forEach((line, idx) => {
-                    if (line.match(/^- \[✅\]/)) {
-                        const cleanName = line.replace(/^- \[✅\]/, '').trim();
-                        const priority = parsePriority(cleanName);
-                        const completedTime = parseTimestamp(line);
-                        tasks.push({
-                            id: idx,
-                            name: cleanName,
-                            status: 'Completed',
-                            priority: priority,
-                            completedTime: completedTime
-                        });
-                    } else if (line.match(/^- \[🔄\]/)) {
-                        const cleanName = line.replace(/^- \[🔄\]/, '').trim();
-                        const priority = parsePriority(cleanName);
-                        const startedTime = parseTimestamp(line);
-                        tasks.push({
-                            id: idx,
-                            name: cleanName,
-                            status: 'In Progress',
-                            priority: priority,
-                            startedTime: startedTime
-                        });
-                    } else if (line.match(/^- \[ \]/)) {
-                        const cleanName = line.replace(/^- \[ \]/, '').trim();
-                        const priority = parsePriority(cleanName);
-                        tasks.push({
-                            id: idx,
-                            name: cleanName,
-                            status: 'Pending',
-                            priority: priority
-                        });
+                    try {
+                        if (line.match(/^- \[✅\]/)) {
+                            const cleanName = line.replace(/^- \[✅\]/, '').trim();
+                            if (cleanName.length === 0) {
+                                parseErrors++;
+                                return;
+                            }
+                            const priority = parsePriority(cleanName);
+                            const completedTime = parseTimestamp(line);
+                            tasks.push({
+                                id: idx,
+                                name: cleanName,
+                                status: 'Completed',
+                                priority: priority,
+                                completedTime: completedTime
+                            });
+                        } else if (line.match(/^- \[🔄\]/)) {
+                            const cleanName = line.replace(/^- \[🔄\]/, '').trim();
+                            if (cleanName.length === 0) {
+                                parseErrors++;
+                                return;
+                            }
+                            const priority = parsePriority(cleanName);
+                            const startedTime = parseTimestamp(line);
+                            tasks.push({
+                                id: idx,
+                                name: cleanName,
+                                status: 'In Progress',
+                                priority: priority,
+                                startedTime: startedTime
+                            });
+                        } else if (line.match(/^- \[ \]/)) {
+                            const cleanName = line.replace(/^- \[ \]/, '').trim();
+                            if (cleanName.length === 0) {
+                                parseErrors++;
+                                return;
+                            }
+                            const priority = parsePriority(cleanName);
+                            tasks.push({
+                                id: idx,
+                                name: cleanName,
+                                status: 'Pending',
+                                priority: priority
+                            });
+                        }
+                    } catch (e) {
+                        console.warn(`Parse error on line ${idx}:`, e);
+                        parseErrors++;
                     }
                 });
                 
+                if (tasks.length === 0 && parseErrors > 0) {
+                    throw new Error(`No valid tasks parsed (${parseErrors} parse errors)`);
+                }
+                
                 allTasks = tasks;
                 applyFilters();
+                updateSyncStatus('success');
+                
             } catch (error) {
                 console.error('Error loading tasks:', error);
-                document.getElementById('taskList').innerHTML = '<div class="task-item" style="justify-content: center; color: #e74c3c;">Error loading tasks. Check GitHub repo.</div>';
+                updateSyncStatus('error', error.message);
+                document.getElementById('taskList').innerHTML = `<div class="task-item" style="justify-content: center; color: #f97316;">⚠️ Error: ${error.message || 'Failed to load tasks from GitHub'}</div>`;
             }
+        }
+        
+        // Update sync status indicator
+        function updateSyncStatus(status, errorMsg = '') {
+            const syncDot = document.getElementById('syncDot');
+            const lastSyncSpan = document.getElementById('lastSyncTime');
+            const now = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            
+            if (status === 'success') {
+                syncDot.style.background = '#4ade80';
+                lastSyncSpan.textContent = now;
+            } else if (status === 'error') {
+                syncDot.style.background = '#ef4444';
+                lastSyncSpan.innerHTML = `<span title="${errorMsg}">${now} ⚠️</span>`;
+            } else if (status === 'loading') {
+                syncDot.style.background = '#f97316';
+                lastSyncSpan.textContent = 'Syncing...';
+            }
+        }
+        
+        // Manual refresh trigger
+        function manualRefresh() {
+            const refreshBtn = document.getElementById('refreshBtn');
+            const refreshIcon = document.getElementById('refreshIcon');
+            
+            refreshBtn.classList.add('loading');
+            refreshIcon.classList.add('spinning');
+            updateSyncStatus('loading');
+            
+            loadTasks().finally(() => {
+                refreshBtn.classList.remove('loading');
+                refreshIcon.classList.remove('spinning');
+            });
         }
         
         function applyFilters() {
@@ -653,8 +805,13 @@
         // Load on page load
         loadTasks();
         
-        // Auto-refresh every 2 minutes
+        // Auto-refresh every 2 minutes (120000ms)
         setInterval(loadTasks, 120000);
+        
+        // Update sync time display on page load
+        setTimeout(() => {
+            document.getElementById('lastSyncTime').textContent = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        }, 500);
     </script>
 </body>
 </html>
